@@ -1,10 +1,22 @@
+import React from 'react';
+import { BrowserRouter, Routes, Route } from  'react-router-dom';
+
+import Sidebar from './components/Sidebar.jsx'
 import './App.css';
+import './css/reset.css'
+import SignUp from './components/SignUp.jsx';
 
 function App() {
   return (
-    <div className="App">
+    <BrowserRouter>
+      <Routes>
 
-    </div>
+        <Route element={<Sidebar />}>
+          <Route path="/" element={<SignUp />}/>
+        </Route>
+
+      </Routes>
+    </BrowserRouter>
   );
 }
 

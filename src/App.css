@@ -1,0 +1,21 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+.media-ct {
+    min-width: 320px;
+    max-width: 480px;
+    min-height : 100dvh;
+}
+
+@media (min-width : 1281px) {
+    .media-ct {
+        min-width : 1281px;
+    }
+}
+
+.desktop-ct {
+    display: none;
+}

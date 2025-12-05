@@ -1,0 +1,45 @@
+.sidebar-ct {
+    display : flex;
+}
+
+/* 사이드바 설정 */
+.side-ct {
+    display : flex;
+    flex-direction: column;
+    height : 100dvh;
+    background-color: #CAE8DD;
+    width : 150px;
+    justify-content: space-between;
+}
+
+/* 사이드바 홈, 일정, 관리자 컨테이너 */
+.side-content-ct {
+    display : flex;
+    flex-direction: column;
+    margin-top: 12rem;
+}
+
+/* 홈, 일정, 관리자 설정 */
+.side-home, .side-schedule, .side-manager {
+    display : flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap : 5px;
+    height: 6rem;
+}
+
+/* 홈, 일정, 관리자 글씨 */
+.side-home > p, .side-schedule > p, .side-manager > p {
+    color: #FFF;
+    font-family: Pretendard;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+.side-user {
+    margin : 0 auto;
+    margin-bottom: 3rem;
+}
