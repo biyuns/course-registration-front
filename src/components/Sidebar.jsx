@@ -36,6 +36,7 @@ const Sidebar = () => {
                 </div>
 
             </aside>
+
         <main>
             <Outlet />            
         </main>
