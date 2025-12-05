@@ -1,0 +1,77 @@
+.class_ct {
+    display: flex;
+    width: 100%;
+    height: 82px;
+    background: #FCFCFC;
+    border-radius: 10px;
+    border: 1px solid #D8D8D8;
+}
+
+
+.class_info {
+    display: flex;
+    flex-direction: column;
+    height: 82px;
+    justify-content: center;
+    color: #A2A2A2;
+    font-family: Pretendard;
+    font-size: 11px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    padding-left: 12px;
+}
+
+
+.class_info>p:nth-of-type(2) {
+    color: #292929;
+    font-family: Pretendard;
+    font-size: 17px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+
+.class_time {
+    text-align: center;
+    width: 78px;
+    height: 82px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    border-right: 1px solid #D8D8D8;
+}
+
+.class_time>p:nth-of-type(1) {
+    color: #292929;
+    text-align: center;
+    font-family: Pretendard;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+
+.class_time>p:nth-of-type(2) {
+    color: #A2A2A2;
+    text-align: center;
+    font-family: Pretendard;
+    font-size: 9px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    margin-bottom: 11px;
+}
+
+.can_seat {
+    color: #A2A2A2;
+    text-align: center;
+    font-family: Pretendard;
+    font-size: 9px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    border-radius: 0 0 0 10px;
+    border: 1px solid #D8D8D8;
+    background: linear-gradient(0deg, #D8D8D8 0%, #D8D8D8 100%), #FCFCFC;
+}
