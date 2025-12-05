@@ -1,0 +1,18 @@
+.date_ct {
+    width: 63px;
+    height: 42px;
+    padding: 0 13px 0 13px;
+    border-radius: 5px;
+    background: #FCFCFC;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #4D4D4D;
+    font-family: Pretendard;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    box-sizing: border-box;
+
+}
