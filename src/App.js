@@ -1,10 +1,13 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
-import Sidebar from './components/Sidebar.jsx'
 import './App.css';
 import './css/reset.css'
-import SignUp from './components/SignUp.jsx';
+
+import Sidebar from './components/Sidebar.jsx'
+import Login from './pages/Login.jsx';
+import SignUp from './pages/SignUp.jsx';
+import SignUpNormal from './pages/LocalSignUp.jsx';
 
 function App() {
   return (
@@ -12,7 +15,9 @@ function App() {
       <Routes>
 
         <Route element={<Sidebar />}>
-          <Route path="/" element={<SignUp />} />
+          <Route path="/" element={<Login />}/>
+          <Route path="/signup" element={<SignUp />}/>
+          <Route path="/signup-normal" element={<SignUpNormal />}/>
         </Route>
 
       </Routes>

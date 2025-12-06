@@ -1,0 +1,160 @@
+@media (min-width:1281px) {
+
+    /* ID/PW 회원가입 전체 컨테이너 */
+    .ls-ct {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        overflow-y: auto;
+        margin: 0 auto;
+        width: 50%;
+        height: calc(100vh - 197px);
+    }
+
+    /* 시대원 학원 회원가입 문구 설정 */
+    .ls-title {
+        color: #424C5E;
+        font-family: "Pretendard Variable";
+        font-size: 40px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: normal;
+        margin: 102px 0px 41px 0px;
+    }
+
+    /* 회원가입 정보 입력 전체 컨테이너 */
+    .ls-info-ct {
+        width: 70%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 30px;
+    }
+
+    /* 회원가입 각 정보 입력 컨테이너 */
+    .ls-id-ct,
+    .ls-psw-ct,
+    .ls-psw-check-ct,
+    .ls-name-ct,
+    .ls-email-ct,
+    .ls-number-ct,
+    .ls-attendance-ct {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        gap: 10px;
+    }
+
+    /* 정보 입력 제목 글자 설정 */
+    .ls-id,
+    .ls-psw,
+    .ls-psw-check,
+    .ls-name,
+    .ls-email,
+    .ls-number-ct,
+    .ls-attendance-ct {
+        color: #4D4D4D;
+        font-family: "Pretendard Variable";
+        font-size: 20px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: normal;
+    }
+
+    /* 모든 정보 입력창 설정(이메일 주소 제외) */
+    .ls-input {
+        width: 100%;
+        border-radius: 5px;
+        border: 1px solid #A2A2A2;
+        height: 66px;
+        padding: 20px 14px;
+    }
+
+    /* 이메일 주소 컨테이너 */
+    .ls-email2 {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    /* 이메일 입력창, 이메일 select 창 설정 */
+    .ls-input-email {
+        width: 48%;
+        border-radius: 5px;
+        border: 1px solid #A2A2A2;
+        height: 66px;
+        padding: 20px 14px;
+    }
+
+    /* 아이디, 비밀번호, 전화번호 아래 서브 안내 메시지 설정 */
+    .ls-number-sub,
+    .ls-id-sub,
+    .ls-psw-sub {
+        color: #8B8686;
+        font-family: "Pretendard Variable";
+        font-size: 13px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+    }
+
+    /* 가입하기 버튼 설정 */
+    .ls-sign-btn {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-shrink: 0;
+
+        width: 50%;
+        height: 75px;
+        margin: 45px 0px 107px 0px;
+
+        background: #01AEB0;
+
+        color: #FCFCFC;
+        text-align: center;
+        font-family: "Pretendard Variable";
+        font-size: 20px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: normal;
+    }
+
+    .ls-input::placeholder,
+    .ls-input-email::placeholder {
+        color: #D5D5D5;
+        font-family: "Pretendard Variable";
+        font-size: 20px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: normal;
+    }
+}
+
+@media (min-width : 1440px) and (max-width : 1450px) {
+    .ls-info-ct {
+        width: 90%;
+    }
+
+    .ls-title {
+        margin-top: 50px;
+    }
+
+    .ls-input,
+    .ls-input-email {
+        height: 40px;
+        padding: 20px 14px;
+    }
+
+    .ls-input::placeholder,
+    .ls-input-email::placeholder {
+        font-size: 15px;
+    }
+
+    .ls-sign-btn {
+        height: 50px;
+        font-size: 14px;
+    }
+
+}

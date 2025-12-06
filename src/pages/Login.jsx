@@ -1,10 +1,13 @@
-import '../css/SignUp.css';
+import '../css/Login.css';
 import GoogleLoginimg from '../img/google-login-logo.svg';
 import NaverLoginimg from '../img/naver-login-log.png';
-import Header from './Header';
+import Header from '../components/Header';
+
+import Navigation from '../components/Navigate.jsx';
 
 
-export default function SignUp() {
+export default function Login() {
+    const { movesignup } = Navigation();
     return (
         <div className='media-ct'>
             <Header />
@@ -20,7 +23,7 @@ export default function SignUp() {
                     <div> | </div>
                     <p className='password-find'> 비밀번호 찾기 </p>
                     <div> | </div>
-                    <p className='signup'> 회원가입 </p>
+                    <p className='signup' onClick={movesignup}> 회원가입 </p>
                 </div>
                 
                 <div className='google-naver-login'>
