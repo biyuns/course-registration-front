@@ -5,3 +5,12 @@
     gap: 13px;
     padding-top: 99px
 }
+
+.calender_section {
+    margin: 104px 30px 0 30px;
+
+}
+
+.calender_section>p {
+    padding: 24px 0 9px 4px;
+}
