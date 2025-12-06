@@ -1,151 +1,141 @@
-/* Header.jsx css 구간*/
-/* Header 컨테이너  */
-.top-header-ct { 
-  display : flex;
-  justify-content: space-between;
-  /* align-items: center; */
-  width : 100%;
+@media (min-width:1281px) {
+
+    /* 회원가입 전체 컨테이너 */
+    .signup-ct {
+        display: flex;
+        flex-direction: column;
+        gap: 26px;
+        align-items: center;
+        justify-content: center;
+
+        margin: 113px auto 0 auto;
+        border-radius: 15px;
+        border: 1px solid #D8D8D8;
+
+        width: 50%;
+        height: 450px;
+    }
+
+    /* 회원가입 안내문구 컨테이너 */
+    .signup-instructions {
+        display: flex;
+        flex-direction: column;
+        width: 70%;
+    }
+
+    /* 회원가입하기 글씨 설정 */
+    .signup-title-ins {
+        color: #292929;
+        font-family: Pretendard;
+        font-size: 24px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: normal;
+    }
+
+    /* 회원가입 서브 안내문구 설정 */
+    .signup-sub-ins {
+        color: #4D4D4D;
+        font-family: Pretendard;
+        font-size: 15px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: normal;
+    }
+
+    /* 구분선 위쪽 */
+    .signup-contour {
+        background: #D8D8D8;
+        width: 70%;
+        height: 1px;
+    }
+
+    /* 구글, 네이버로 시작하기 컨테이너 */
+    .google-naver-start-ct {
+        display: flex;
+        flex-direction: column;
+        gap: 14px;
+        width: 70%;
+    }
+
+    /* 구글, 네이버 시작하기 버튼 설정 */
+    .google-start-btn,
+    .naver-start-btn {
+        width: 100%;
+        height: 50px;
+
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    /* 구글, 네이버 이미지 로고 크기 설정 */
+    .google-start-btn>img,
+    .naver-start-btn>img {
+        width: 2rem;
+        margin-left: 22px;
+    }
+
+    /* 구글, 네이버 더미 크기 설정 */
+    .google-start-btn>div,
+    .naver-start-btn>div {
+        width: 2rem;
+        margin-right: 22px;
+    }
+
+    /* 구글로 시작하기 버튼 글씨, border, 배경설정 */
+    .google-start-btn {
+        border: 1px solid #A2A2A2;
+        background: #FCFCFC;
+        color: #4D4D4D;
+        font-family: "Pretendard Variable";
+        font-size: 15px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: normal;
+    }
+
+    /* 네이버로 시작하기 버튼 글씨, border, 배경설정 */
+    .naver-start-btn {
+        background: #00C73C;
+        color: #FFF;
+        font-family: "Pretendard Variable";
+        font-size: 15px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: normal;
+    }
+
+    /* 아래쪽 구분선 컨테이너*/
+    .signup-contour-ct {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width:70%;
+    }
+
+    /* 아래 구분선 설정 */
+    .signup-half-contour {
+        width: 45%;
+        background: #D8D8D8;
+        height: 1px;
+    }
+    /* 구분선 사이 "또는" 글씨 설정 */
+    .signup-contour-ct>p {
+        color: #757575;
+        font-family: "Pretendard Variable";
+        font-size: 15px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+    }
+    /* ID/PW 회원가입 버튼 설정 */
+    .normal-start-btn {
+        width : 70%;
+        height : 50px;
+        border:  1px solid #A2A2A2;
+        background: #FCFCFC;
+    }
 }
 
-/* 로그아웃 버튼 설정 */
-.logout {
-  color: #A2A2A2;
-font-family: Pretendard;
-font-size: 1rem;
-font-style: normal;
-font-weight: 600;
-line-height: normal;
-
-margin : 112px 73px 0px 0px;
-}
-
-
-/* Signup.jsx css 구간 */
-/* 시대원 학원 로고 */
-.academy-logo {
-  margin-top : 47px;
-}
-
-/* 시대원 학원 로고 데스크톱 버전 */
-.academy-logo-desktop {
-  margin-left : 0px;
-}
-/* 로그인 관련 컨테이너 */
-.login-ct {
-  display : flex;
-  flex-direction: column;
-  align-items: center;
-  margin : 59px 25px 0px 25px;
-  gap : 20px;
-}
-
-/* 로그인 글자 */
-.login-ct > p { 
-color: #01AEB0;
-font-family: Pretendard;
-font-size: 24px;
-font-style: normal;
-font-weight: 600;
-line-height: normal;
-
-margin-bottom: 17px;
-}
-
-/* 아이디, 비밀번호 입력창 */
-.id-input, .password-input {
-  width : 90%;
-  height : 3rem;
-
-  padding: 14px 20px;
-  border-radius: 10px;
-  border: 1px solid #A2A2A2;
-  
-  color: #4D4D4D;
-  font-family: "Pretendard Variable";
-  font-size: 0.7rem;
-  font-style: normal;
-  font-weight: 500;
-  line-height: normal;
-}
-
-/* 로그인 버튼 */
-.login-btn {
-  width : 90%;
-  text-align: center;
-  border-radius: 10px;
-  background: #01AEB0;
-  height : 3rem;
-
-  display : flex;
-  align-items: center;
-  justify-content: center;
-
-  margin-top: 10px;
-
-  color: #FCFCFC;
-  text-align: center;
-  font-family: "Pretendard Variable";
-  font-size: 0.7rem;
-  font-style:normal;
-  font-weight: 600;
-  line-height: normal;
-
-}
-
-/* 아이디, 비밀번호 찾기, 회원가입 컨테이너 */
-.find-singup-ct {
-  display : flex;
-  justify-content: space-between;
-  align-items: center;
-  width : 70%;
-}
-
-/* 아이디 찾기 비밀번호 찾기 회원가입 사이 | 설정 */
-.find-singup-ct > div {
-  width : 1px;
-  font-size: 0.7rem;
-  color : #D8D8D8;
-}
-
-/* 아이디, 비번, 회원가입 글자 설정  */
-.id-find, .password-find, .signup {
-  color: #757575;
-  font-family: "Pretendard Variable";
-  font-size: 0.7rem;
-  font-style: normal;
-  font-weight: 400;
-  line-height: normal;
-}
-
-/* 구글, 네이버 로그인 컨테이너 */
-.google-naver-login {
-  display : flex;
-  justify-content: center;
-  gap : 10px;
-  width : 30%;
-}
-
-/* 구글, 네이버 로고 크기  */
-.google-login-logo, .naver-login-logo{
-  width : 2rem;
-}
-
-@media (min-width : 1281px) {
-  .mobile-ct {
-    display : none;
-  }
-
-  .desktop-ct {
-    display : block;
-  }
-
-  .academy-logo {
-    margin-left: 0px;
-  }
-
-  .academy-logo-desktop {
-  margin-left : 112px;
-  }
-
-  
-}
+@media (min-width : 1440px) and (max-width : 1450px) {}

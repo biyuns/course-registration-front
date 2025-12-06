@@ -7,12 +7,15 @@
 .media-ct {
     min-width: 320px;
     max-width: 480px;
-    min-height : 100dvh;
+    min-height: 100vh;
 }
 
 @media (min-width : 1281px) {
     .media-ct {
         min-width : 1281px;
+        max-width: 2560px;
+        height : 100vh;
+        /* overflow: hidden; */
     }
 }
 

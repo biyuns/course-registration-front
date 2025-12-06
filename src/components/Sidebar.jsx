@@ -5,6 +5,7 @@ import SideHome from '../img/side-home-img.svg';
 import SideSchedule from '../img/side-schedule-img.svg'
 import SideManager from '../img/side-manager-img.svg'
 import SideUser from '../img/side-user-img.svg'
+import Header from './Header';
 
 const Sidebar = () => {
     return (
