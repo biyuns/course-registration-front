@@ -1,11 +1,13 @@
 import hom from '../css/Home.module.css';
 import ClassCtWeb from '../components/ClassCtWeb';
 import Navigation from '../components/Navigate';
+import Header from '../components/Header';
 
 function Home() {
     const { moveclassaply, movetime } = Navigation();
     return (
         <section className={hom.main_home_ct}>
+            <Header />
             <div className={hom.my_class}>
                 <div className={hom.my_class_top}>
                     <p>내 강의 확인</p>

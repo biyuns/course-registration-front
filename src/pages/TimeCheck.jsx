@@ -3,10 +3,13 @@ import TimeC from '../css/TimeCheck.module.css';
 import ClassCt from "../components/ClassCt";
 import Calender from "../components/Calender";
 import ClassCtWeb from "../components/ClassCtWeb";
+import Header from "../components/Header";
+
 
 function TimeCheck() {
     return (
         <>
+            <Header />
             <HeaderSub title="시간표 확인" />
             <section className={TimeC.calender_section}>
                 <p className={TimeC.app_calender_p}>달력</p>
