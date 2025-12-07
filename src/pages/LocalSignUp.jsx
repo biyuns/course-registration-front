@@ -1,8 +1,10 @@
 import Header from "../components/Header";
 
 import '../css/LocalSignUp.css';
+import Navigation from "../components/Navigate";
 
 export default function SignUpNormal() {
+    const { signupcomplete } = Navigation();
     return (
         <div className="media-ct">
             <Header />
@@ -61,7 +63,7 @@ export default function SignUpNormal() {
                         <input type="text" className="ls-input" placeholder="출결번호 입력." />
                     </article>
                 </section>
-                <button className="ls-sign-btn"> 가입하기 </button>
+                <button className="ls-sign-btn" onClick={signupcomplete}> 가입하기 </button>
             </div>
 
         </div>

@@ -23,3 +23,222 @@
 .desktop-ct {
     display: none;
 }
+
+/* SeatLayout.css */
+
+/* 자리선택 전체 컨테이너 */
+.rsr-ct {
+    width: 480px;
+    position: fixed;
+    margin: 0 auto;
+    overflow-y: auto;
+    overflow-x: auto;
+}
+
+/* 음향장비, 칠판, 교탁 컨테이너 */
+.rsr-header-ct {
+    display: flex;
+    margin-left: 70px;
+    margin-top: 47px;
+    gap: 28.51px;
+}
+
+/* 음향장비 설정 */
+.rsr-sound-equipment {
+    width: 78.482px;
+    height: 36.223px;
+    border-radius: 0 0 20px 0;
+    background: #757575;
+
+    color: #FCFCFC;
+    font-family: Pretendard;
+    font-size: 17px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* 칠판, 교탁 컨테이너 설정 */
+.rsr-header-flex {
+    display: flex;
+    flex-direction: column;
+    gap: 9.5px;
+}
+
+/* 칠판 설정 */
+.rsr-board {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 271.67px;
+    height: 22.502px;
+    border-radius: 0 0 20px 20px;
+    background: #9ED0BE;
+
+    color: #FCFCFC;
+    font-family: Pretendard;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+
+    margin-left: 28.51px;
+}
+
+/* 교탁 설정 */
+.rsr-desk {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 120.742px;
+    height: 23.051px;
+    border-radius: 20px;
+    background: #9ED0BE;
+
+    color: #FCFCFC;
+    font-family: Pretendard;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+
+    text-align: center;
+    margin-left: 124px;
+}
+
+/* tv 컨테이너 */
+.rsr-tv-ct {
+    display: flex;
+    gap: 169.01px;
+    margin-left: 127.96px;
+}
+
+/* tv 설정 */
+.rsr-tv {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80.678px;
+    height: 19.209px;
+    border-radius: 8px;
+    background: #01AEB0;
+
+    color: #FCFCFC;
+    font-family: Pretendard;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
+/* 가벽 설정 */
+.rsr-wall {
+    width: 10.428px;
+    height: 45.553px;
+    background: #757575;
+}
+
+/* 전체 줄 스택 */
+.rows {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    /* 줄 사이 기본 간격, 줄마다 margin으로 추가 조정 가능 */
+}
+
+/* 한 줄 */
+.row {
+    display: flex;
+    align-items: center;
+}
+
+/* 좌석이 들어가는 부분 */
+.seat-row {
+    display: flex;
+    justify-content: center;
+    /* 가운데 정렬, 필요한 경우 space-between 등으로 변경 */
+    flex: 1;
+}
+
+/* 좌석 버튼 기본 스타일 */
+.seat {
+    min-width: 26px;
+    height: 26px;
+    margin: 0 2px;
+    /* 좌석 간 간격 – 네가 줄마다 따로 조정하고 싶으면 row-x 클래스에서 override */
+    border: none;
+    border-radius: 6px;
+    background: #e9ecef;
+    font-size: 11px;
+    color: #555;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* 왼쪽 문(두 줄 합쳐서 하나 표현하는 용도) */
+.door-left {
+    width: 30px;
+    margin-right: 4px;
+    font-size: 10px;
+    text-align: center;
+    color: #fff;
+    background: #9ea3aa;
+    border-radius: 4px;
+    padding: 8px 0;
+}
+
+/* 4,5줄이 하나의 긴 문처럼 보이도록 높이/모양 조정 예시 */
+.door-top {
+    border-radius: 6px 6px 0 0;
+}
+
+.door-bottom {
+    border-radius: 0 0 6px 6px;
+}
+
+/* 14번째 줄처럼 한 줄짜리 문만 있는 경우 */
+.door-single {
+    border-radius: 6px;
+}
+
+/* 오른쪽 가벽 */
+.wall-right {
+    width: 10px;
+    height: 26px;
+    margin-left: 4px;
+    border-radius: 4px;
+    background: #c2c6cd;
+}
+
+/* TV 줄 */
+.row-tv {
+    /* 위아래 여백 등 필요하면 추가 */
+}
+
+
+/* ---------- 줄별 margin 조정은 이렇게 ---------- */
+
+/* 예: 1~3줄은 칠판과 좀 더 멀게 하고 싶으면 */
+.row-1 {
+    margin-top: 4px;
+}
+
+.row-2 {}
+
+.row-3 {
+    margin-bottom: 4px;
+}
+
+/* 8줄(TV) 위·아래 간격 따로 주고 싶으면 */
+.row-8 {
+    margin: 6px 0;
+}
+
+/* 14줄 문/가벽이 있는 줄 간격 */
+.row-14 {
+    margin: 8px 0 4px;
+}

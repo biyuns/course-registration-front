@@ -33,7 +33,7 @@ const Sidebar = () => {
                 </section>
 
                 <div className='side-user'>
-                    <img src={SideUser} alt="사이드 유저 이미지"/>
+                    <img src={SideUser} alt="사이드바 유저 이미지"/>
                 </div>
 
             </aside>
