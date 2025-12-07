@@ -1,8 +1,9 @@
 import hom from '../css/Home.module.css';
+import ClassCtWeb from '../components/ClassCtWeb';
 
 function Home() {
     return (
-        <section>
+        <section className={hom.main_home_ct}>
             <div className={hom.my_class}>
                 <div className={hom.my_class_top}>
                     <p>내 강의 확인</p>
@@ -27,6 +28,19 @@ function Home() {
                 <button className={hom.class_apply_btn}><p>강의 신청</p></button>
                 <button className={hom.class_check_btn}><p>시간표 확인</p></button>
             </div>
+            <section className={hom.home_bottom}>
+                <div className={hom.gray_hr}>
+                    <div>수강정보</div>
+                </div>
+                <div className={hom.class_apply_web_ct}>
+                    <ClassCtWeb />
+                    <ClassCtWeb />
+                    <ClassCtWeb />
+                    <ClassCtWeb />
+                    <ClassCtWeb />
+                </div>
+            </section>
+
         </section >
     )
 }

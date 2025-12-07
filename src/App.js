@@ -9,6 +9,7 @@ import SignUp from './pages/SignUp.jsx';
 import SignUpNormal from './pages/LocalSignUp.jsx';
 import Home from './pages/Home.jsx';
 import ClassApply from './pages/ClassApply.jsx';
+import TimeCheck from './pages/TimeCheck.jsx';
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
           <Route path="/signup-normal" element={<SignUpNormal />} />
           <Route path="/home" element={<Home />} />
           <Route path="/apply" element={<ClassApply />} />
+          <Route path="/time" element={<TimeCheck />} />
         </Route>
 
       </Routes>

@@ -14,3 +14,50 @@
 .calender_section>p {
     padding: 24px 0 9px 4px;
 }
+
+
+
+.web_calender_p {
+    display: none;
+}
+
+.classes_ct_web {
+    display: none;
+}
+
+
+@media screen and (min-width: 1200px) {
+    .calender_section {
+        margin: 0 178px 0 178px;
+
+    }
+
+    .classes_ct_web {
+        display: block;
+        margin: 50px 178px 0 178px;
+
+    }
+
+    .classes_ct_web>div>button {
+        display: none;
+    }
+
+    .app_calender_p {
+        display: none;
+    }
+
+    .web_calender_p {
+        display: block;
+        color: #01AEB0;
+        font-family: Pretendard;
+        font-size: 20px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: normal;
+    }
+
+
+    .classes_ct {
+        display: none;
+    }
+}

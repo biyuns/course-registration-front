@@ -1,7 +1,7 @@
 *,
 *::before,
 *::after {
-  box-sizing: border-box;
+    box-sizing: border-box;
 }
 
 .media-ct {
@@ -12,9 +12,9 @@
 
 @media (min-width : 1281px) {
     .media-ct {
-        min-width : 1281px;
+        min-width: 1281px;
         max-width: 2560px;
-        height : 100vh;
+        height: 100vh;
         /* overflow: hidden; */
     }
 }
