@@ -1,8 +1,10 @@
 import classC from '../css/ClassCt.module.css';
+import Navigation from '../components/Navigate';
 
 function ClassCt() {
+    const { reservationpg } = Navigation();
     return (
-        <div className={classC.class_ct}>
+        <div className={classC.class_ct} onClick={reservationpg}>
             <div className={classC.class_time}>
                 <p>시작시간</p>
                 <p>~끝 시간</p>

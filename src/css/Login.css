@@ -17,21 +17,29 @@
   line-height: normal;
 
   margin: 112px 73px 0px 0px;
+  display: none;
+}
+
+/* 모바일 상단에 보이는 프로필 사진 */
+.mobile-profile-img {
+  display: block;
+  margin : 42px 27px 0px 0px;
 }
 
 /* 상단 회색 라인 부분 */
 .top-line {
-  height : 1.5px;
+  height: 1.5px;
   background-color: #CFD8DC;
-  margin-top : 15px;
+  margin-top: 15px;
   /* border-style: solid; */
 }
+
 
 
 /* Signup.jsx css 구간 */
 /* 시대원 학원 로고 */
 .academy-logo {
-  margin-top: 47px;
+  margin-top: 42px;
 }
 
 /* 시대원 학원 로고 데스크톱 버전 */
@@ -161,32 +169,40 @@
   }
 
   .login-ct {
-    width :40%;
+    width: 40%;
     margin: 0 auto;
     margin-top: 113px;
     border-radius: 15px;
-    border : 1px solid #D8D8D8;
-    height : 450px;
+    border: 1px solid #D8D8D8;
+    height: 450px;
   }
 
-  .login-ct > p  { 
+  .login-ct>p {
     margin-top: 52px;
   }
 
+  .logout {
+    display: block;
+  }
+
+  .mobile-profile-img {
+    display: none;
+  }
 }
 
 
 @media (min-width : 1440px) and (max-width : 1450px) {
   .academy-logo-desktop {
-    margin :  0px 0px 0px 30px;  
+    margin: 0px 0px 0px 30px;
   }
 
-  .academy-logo, .logout{
-    margin-top : 30px;
+  .academy-logo,
+  .logout {
+    margin-top: 30px;
   }
 
   .logout {
-    display : flex;
+    display: flex;
     align-items: center;
     justify-content: center;
   }

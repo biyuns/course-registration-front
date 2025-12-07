@@ -10,6 +10,8 @@ import SignUpNormal from './pages/LocalSignUp.jsx';
 import Home from './pages/Home.jsx';
 import ClassApply from './pages/ClassApply.jsx';
 import TimeCheck from './pages/TimeCheck.jsx';
+import SignUpComplete from './pages/SignUpComplete.jsx';
+import ReservationPg from './pages/ReservationPg.jsx';
 
 function App() {
   return (
@@ -20,6 +22,8 @@ function App() {
           <Route path="/" element={<Login />} />
           <Route path="/signup" element={<SignUp />} />
           <Route path="/signup-normal" element={<SignUpNormal />} />
+          <Route path="/signupComplete" element={<SignUpComplete />} />
+          <Route path="/reservation" element={<ReservationPg />} />
           <Route path="/home" element={<Home />} />
           <Route path="/apply" element={<ClassApply />} />
           <Route path="/time" element={<TimeCheck />} />

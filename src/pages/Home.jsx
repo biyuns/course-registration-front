@@ -1,7 +1,9 @@
 import hom from '../css/Home.module.css';
 import ClassCtWeb from '../components/ClassCtWeb';
+import Navigation from '../components/Navigate';
 
 function Home() {
+    const { moveclassaply, movetime } = Navigation();
     return (
         <section className={hom.main_home_ct}>
             <div className={hom.my_class}>
@@ -25,8 +27,8 @@ function Home() {
                 </div>
             </div>
             <div className={hom.class_button_ct}>
-                <button className={hom.class_apply_btn}><p>강의 신청</p></button>
-                <button className={hom.class_check_btn}><p>시간표 확인</p></button>
+                <button className={hom.class_apply_btn} onClick={moveclassaply}><p>강의 신청</p></button>
+                <button className={hom.class_check_btn} onClick={movetime}><p>시간표 확인</p></button>
             </div>
             <section className={hom.home_bottom}>
                 <div className={hom.gray_hr}>
