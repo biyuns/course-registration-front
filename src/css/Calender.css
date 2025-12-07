@@ -35,7 +35,7 @@
     width: 25px;
     height: 25px;
     border-radius: 50%;
-    background-color: aquamarine;
+
     color: #D8D8D8;
 }
 
@@ -46,6 +46,41 @@
     width: 25px;
     height: 25px;
     border-radius: 50%;
-    background-color: aquamarine;
+
     color: #757575;
+}
+
+.total-date-ct {
+    box-sizing: border-box;
+}
+
+@media screen and (min-width: 1200px) {
+    .calender-div>p {
+        font-size: 30px;
+    }
+
+    .current-date-div {
+        width: 55px;
+        height: 55px;
+        font-size: 20px;
+
+    }
+
+    .prev-date-div {
+        width: 55px;
+        height: 55px;
+        font-size: 20px;
+    }
+
+    .calender-class-ct {
+        display: none;
+    }
+
+    .calender-div {
+        height: 450px;
+    }
+
+    .total-date-ct {
+        padding: 0 100px;
+    }
 }

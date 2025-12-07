@@ -75,3 +75,99 @@
     border: 1px solid #D8D8D8;
     background: linear-gradient(0deg, #D8D8D8 0%, #D8D8D8 100%), #FCFCFC;
 }
+
+
+
+
+
+.class_ct_web {
+    margin-bottom: 30px;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 150px;
+    border-radius: 30px;
+    background: #FCFCFC;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.10) inset, 10px 10px 10px 0 rgba(0, 0, 0, 0.10);
+}
+
+
+
+.class_ct_web>div {
+    display: flex;
+    flex-direction: column;
+
+}
+
+.date_time_ct_web {
+
+    width: 150px;
+    color: #0E0E0E;
+    text-align: center;
+    font-family: Pretendard;
+    font-size: 22px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    justify-content: center;
+}
+
+.class_infos_web {
+    margin-top: 32px;
+    color: #A2A2A2;
+    font-family: Pretendard;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
+.class_name_web {
+    color: #0E0E0E;
+    font-family: Pretendard;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+
+.class_book_web {
+    color: #2C8FFF;
+    font-family: Pretendard;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    margin-top: 9px;
+}
+
+.class_ct_web>button {
+
+    display: flex;
+    align-items: center;
+    width: 228px;
+    height: 45px;
+    padding: 17px 51px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    flex-shrink: 0;
+    border-radius: 50px;
+    border: 2px solid #01AEB0;
+    background: #FCFCFC;
+    color: #01AEB0;
+    text-align: center;
+    font-family: Pretendard;
+    font-size: 22px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
+.date_time_ct_web+div {
+    align-self: flex-start;
+}
+
+.class_ct_web>button {
+    margin: 0 60px 0 auto;
+}

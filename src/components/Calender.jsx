@@ -105,7 +105,7 @@ function Calender() {
     return (
         <div className="calender-div">
             <p>{calenderInfo.month}</p>
-            <div>
+            <div className="total-date-ct">
                 {totalDates.map((totalDate) => (
                     <CalenderDate key={totalDate.id}{...totalDate} currentMonth={calenderInfo.month} />
                 ))}
