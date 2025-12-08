@@ -187,9 +187,7 @@ p {
         height: 600px;
     }
 
-    .main_home_ct>div {
-        overflow-y: scroll;
-    }
+
 
     .my_class {
         height: 287px;
