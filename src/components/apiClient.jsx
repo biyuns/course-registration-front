@@ -7,6 +7,14 @@ const apiClient = axios.create({
     },
 });
 
+apiClient.interceptors.request.use((config) => {
+  const token = localStorage.getItem('accessToken');   // 로그인 시 저장해 둔 토큰
+  if (token) {
+    config.headers.Authorization = `Bearer ${token}`;
+  }
+  return config;
+});
+
 export const authAPI = {
     login: (data) => apiClient.post('/login', data),   // 로그인
     signup: (data) => apiClient.post('/api/user/signup', data), // 회원가입
