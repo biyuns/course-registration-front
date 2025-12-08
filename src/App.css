@@ -356,6 +356,7 @@
 @media (min-width : 1281px) {
     .rsr-right-ct {
         display: block;
+        margin-left : 40px;
     }
 
     .pick-seat-ct {
@@ -406,7 +407,7 @@
 
     .rsr-reservation-btn {
         display: flex;
-        width: 590px;
+        width: 550px;
         height: 78px;
         padding: 17px 51px;
         justify-content: center;
@@ -515,6 +516,47 @@
     }
 }
 
+.rsr-seat-selected {
+  background: #4D4D4D;
+  color: #FCFCFC; /* 글자색은 보기 좋게 흰색 */
+}
 
+/* 예매 완료 좌석: 배경 + 글자 모두 회색 */
+.rsr-seat-reserved {
+  background: #A2A2A2;
+  color: #A2A2A2;
+}
 
-/* Header는 위에 고정, 나머지가 스크롤 영역 */
+.rsr-reservation-btn {
+  /* 기존 속성 그대로 두고 background는 기본 회색 유지 */
+  background: #A2A2A2;
+}
+
+/* 좌석을 하나라도 선택했을 때 */
+.rsr-reservation-btn-active {
+  background: #01AEB0;
+}
+
+/* 전체 화면에서는 스크롤 막기 */
+.media-ct {
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* 좌석 쪽 컨테이너만 세로 스크롤 허용 */
+.reservation-total-ct {
+  display: flex;
+  height: 100%; /* 부모(.media-ct)의 높이 채우기 */
+}
+
+/* 좌석 영역에만 스크롤 */
+.reservation-scroll-ct {
+  overflow-y: auto;
+  max-height: 100vh; /* 화면 높이 안에서만 스크롤 */
+}
+
+.reservation-scroll-ct {
+  overflow-y: auto;
+  max-height: 100vh;  /* 그대로 두고 */
+  padding-bottom: 200px;  /* ✅ 아래에 여유 공간 확보 */
+}
