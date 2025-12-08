@@ -167,6 +167,19 @@ p {
     display: none;
 }
 
+.none {
+    display: none;
+}
+
+.block {
+    display: block;
+}
+
+.none_class {
+    margin: 21px 0 0 26px;
+}
+
+
 @media screen and (min-width: 1200px) {
     .main_home_ct {
         margin: 0;
@@ -179,17 +192,23 @@ p {
     }
 
     .my_class_top {
-        padding: 43px 0 0 154px;
         color: #0E0E0E;
         font-family: Pretendard;
         font-size: 45px;
         font-style: normal;
         font-weight: 600;
         line-height: normal;
-
         background: none;
+        padding: 20px 0 0 154px;
+        height: 80px;
+
 
     }
+
+    .none_class {
+        margin: 20px 0 0 154px;
+    }
+
 
     .my_class_info>div:first-of-type {
         margin-left: 154px;
