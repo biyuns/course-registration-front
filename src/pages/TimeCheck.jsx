@@ -22,10 +22,10 @@ function TimeCheck() {
                 <ClassCt></ClassCt>
             </section>
             <section className={TimeC.classes_ct_web}>
-                <ClassCtWeb />
-                <ClassCtWeb />
-                <ClassCtWeb />
-                <ClassCtWeb />
+                <ClassCtWeb eventF="" btnText="x" />
+                <ClassCtWeb eventF="" btnText="x" />
+                <ClassCtWeb eventF="" btnText="x" />
+                <ClassCtWeb eventF="" btnText="x" />
             </section>
 
         </>

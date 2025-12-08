@@ -1,0 +1,12 @@
+.class_ct {
+    margin: 0 63px 0 112px;
+}
+
+.class_ct>div {
+    border-radius: 10px;
+    border: 1px solid #A2A2A2;
+
+    background: #FCFCFC;
+    box-shadow: none;
+    margin-bottom: 8px;
+}

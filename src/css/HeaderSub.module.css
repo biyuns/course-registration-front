@@ -16,6 +16,39 @@
     box-sizing: border-box;
 }
 
+.sub_title {
+    display: flex;
+    margin: 30px 123px 20px 122px;
+    justify-content: space-between;
+}
+
+.sub_title>p {
+    color: #01AEB0;
+    font-family: Pretendard;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+
+.sub_title>button {
+    width: 120px;
+    height: 34px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 30px;
+    background: #757575;
+    font-family: Pretendard;
+    color: #FFF;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+
+}
+
+
 @media screen and (min-width: 1200px) {
     .sub_h_ct {
         display: none;

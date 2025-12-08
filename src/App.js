@@ -12,6 +12,9 @@ import ClassApply from './pages/ClassApply.jsx';
 import TimeCheck from './pages/TimeCheck.jsx';
 import SignUpComplete from './pages/SignUpComplete.jsx';
 import ReservationPg from './pages/ReservationPg.jsx';
+import ManagerRsvRegi from './pages/ManagerRsvRegi.jsx';
+import ManagerRsvRegiInfo from './pages/ManageRsvRegiInfo.jsx';
+import ManagerRsvInfo from './pages/ManageRsvInfo.jsx';
 
 function App() {
   return (
@@ -27,6 +30,10 @@ function App() {
           <Route path="/home" element={<Home />} />
           <Route path="/apply" element={<ClassApply />} />
           <Route path="/time" element={<TimeCheck />} />
+          <Route path="/ReservationRegi" element={<ManagerRsvRegi />} />
+          <Route path="/ReservationRegiInfo" element={<ManagerRsvRegiInfo />} />
+          <Route path="/ReservationInfo" element={<ManagerRsvInfo />} />
+
         </Route>
 
       </Routes>

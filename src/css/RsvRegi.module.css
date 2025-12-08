@@ -1,0 +1,69 @@
+.calender_ct {
+    margin: 0 167px 0 146px;
+}
+
+
+.class_form {
+    margin: 0px 267px 0 122px;
+}
+
+.class_day {
+    color: #292929;
+    font-family: Pretendard;
+    font-size: 25px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+.reservation_form {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.reservation_form>div {
+    margin-right: 77px;
+    display: flex;
+    align-items: center;
+
+}
+
+.labels {
+    width: 114px;
+    color: #4D4D4D;
+    font-family: Pretendard;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    display: flex;
+    align-items: center;
+    box-sizing: border-box;
+}
+
+.reservation_form input {
+    display: flex;
+    width: 100%;
+    height: 60px;
+    padding: 24px 14px;
+    align-items: center;
+    border: 1px solid #A2A2A2;
+    background: #FCFCFC;
+    box-sizing: border-box;
+}
+
+.reservation_form select {
+    display: flex;
+    width: 80px;
+    height: 60px;
+    padding: 20px 14px;
+    align-items: center;
+    border: 1px solid #A2A2A2;
+    background: #FCFCFC;
+}
+
+.gray_line {
+    width: 100%;
+    border: 1px solid #A2A2A2;
+}
