@@ -1,6 +1,6 @@
 import classC from '../css/ClassCt.module.css';
 
-function ClassCtWeb() {
+function ClassCtWeb({ eventF, btnText }) {
     return (
         <div className={classC.class_ct_web}>
             <div className={classC.date_time_ct_web}>
@@ -12,8 +12,8 @@ function ClassCtWeb() {
                 <p className={classC.class_name_web}>강의 명</p>
                 <p className={classC.class_book_web}>예약 기간</p>
             </div>
-            <button>
-                신청하기
+            <button onClick={eventF}>
+                {btnText}
             </button>
         </div>
     )
