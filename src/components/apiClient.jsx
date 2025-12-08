@@ -10,7 +10,9 @@ const apiClient = axios.create({
 export const authAPI = {
     login: (data) => apiClient.post('/login', data),   // 로그인
     signup: (data) => apiClient.post('/api/user/signup', data), // 회원가입
-    signupcomplete: (data) => apiClient.get('/api/user/mypage', data)
+    signupcomplete: (data) => apiClient.get('/api/user/mypage', data),
+    getMyReservations: () => apiClient.get('/api/reservations/myRV'),
+    getLectureList: () => apiClient.get('/api/lectures/list'),
 };
 
 export default apiClient;
