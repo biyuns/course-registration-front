@@ -25,16 +25,13 @@
 }
 
 /* SeatLayout.css */
+.reservation-total-ct {
+    display: flex;
+}
 
 .lecture-inf {
-    color: #01AEB0;
-    font-family: Pretendard;
-    font-size: 32px;
-    font-style: normal;
-    font-weight: 600;
-    line-height: normal;
-    margin-left: 153px;
-    margin-top: 49px;
+    display: none;
+
 }
 
 /* 자리선택 전체 컨테이너 */
@@ -347,10 +344,104 @@
     margin-right: 6.02px;
 }
 
+.rsr-right-ct {
+    display: none;
+}
+
+.pick-seat-ct {
+    display: none;
+}
+
+
+@media (min-width : 1281px) {
+    .rsr-right-ct {
+        display: block;
+    }
+
+    .pick-seat-ct {
+        display: block;
+    }
+
+    .rsr-right-inf {
+        color: #01AEB0;
+        font-family: Pretendard;
+        font-size: 32px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: normal;
+    }
+
+    .lector-inf-ct {
+        margin-top: 82px;
+    }
+
+    .rsr-right-date {
+        color: #4D4D4D;
+        text-align: center;
+        font-family: Pretendard;
+        font-size: 40px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: normal;
+
+        text-align: left;
+    }
+
+
+    .lector-classroom-ct {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        color: #A2A2A2;
+        font-family: Pretendard;
+        font-size: 28px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: normal;
+    }
+
+    .lector-middle {
+        font-size: 25px;
+    }
+
+    .rsr-reservation-btn {
+        display: flex;
+        width: 590px;
+        height: 78px;
+        padding: 17px 51px;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+        border-radius: 10px;
+        background: #A2A2A2;
+
+        color: #FFF;
+        text-align: center;
+        font-family: Pretendard;
+        font-size: 36px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: normal;
+
+        margin-top: 428px;
+    }
+}
+
 @media (min-width:1440px) and (max-width:1470px) {
     .lecture-inf {
         margin-left: 90px;
         margin-top: 20px;
+
+        display: block;
+        color: #01AEB0;
+        font-family: Pretendard;
+        font-size: 32px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: normal;
+        margin-left: 153px;
+        margin-top: 49px;
+
     }
 
     .reservation-scroll-ct {
@@ -397,36 +488,33 @@
         border-radius: 6px;
         background: #A2A2A2;
     }
+
+    .rsr-right-inf {
+        margin-top: 20px;
+    }
+
+    .lector-inf-ct {
+        margin-top: 30px;
+    }
+
+    .rsr-right-date {
+        font-size: 35px;
+    }
+
+    .lector-classroom-ct {
+        font-size: 25px;
+    }
+
+    .lector-middle {
+        font-size: 20px;
+    }
+
+    .rsr-reservation-btn {
+        margin-top: 350px;
+        font-size: 25px;
+    }
 }
 
-.reservation-scroll-ct {
-    flex: 1 1 auto;
-    /* 남는 높이 모두 사용 */
-    display: flex;
-    flex-direction: column;
-    overflow-y: auto;
-    /* 이 영역만 세로 스크롤 */
-    -webkit-overflow-scrolling: touch;
-    /* 모바일 부드러운 스크롤 */
-}
 
-html,
-body {
-    height: 100%;
-    margin: 0;
-}
-
-body {
-    overflow: hidden;
-    /* 전체 화면 스크롤 막기 */
-}
-
-/* 최상단 컨테이너 */
-.media-ct {
-    height: 100vh;
-    /* 화면 높이 고정 */
-    display: flex;
-    flex-direction: column;
-}
 
 /* Header는 위에 고정, 나머지가 스크롤 영역 */
