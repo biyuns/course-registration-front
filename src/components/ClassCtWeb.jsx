@@ -1,6 +1,7 @@
 import classC from '../css/ClassCt.module.css';
 
 function ClassCtWeb({ eventF, btnText }) {
+
     return (
         <div className={classC.class_ct_web}>
             <div className={classC.date_time_ct_web}>

@@ -2,9 +2,46 @@ import hom from '../css/Home.module.css';
 import ClassCtWeb from '../components/ClassCtWeb';
 import Navigation from '../components/Navigate';
 import Header from '../components/Header';
+import { useState, useEffect } from 'react';
+import axios from 'axios';
 
 function Home() {
     const { moveclassaply, movetime } = Navigation();
+    const [myClassData, setMyClassData] = useState([]);
+    const [error, setError] = useState();
+
+    const [date, setDate] = useState();
+    const [time, setTime] = useState();
+
+    const fetchMyClassData = async () => {
+        try {
+            setError(null);
+            const res = await axios.get();
+
+            setMyClassData(res.data[0]);
+            setDate(myClassData.startTime.slice(5, 9));
+            setTime(myClassData.startTime.slice(11, 15))
+        } catch (error) {
+            if (error.response) {
+                const httpStatus = error.response.status;
+                setError(httpStatus);
+
+            }
+
+        }
+    }
+
+    useEffect(() => {
+        fetchMyClassData();
+
+    }, []);
+
+
+    const isError404 = error === 404;
+    const NoneClass = isError404 ? hom.block : hom.none;
+    const blockClass = isError404 ? hom.none : hom.block;
+
+
     return (
         <>
 
@@ -14,17 +51,20 @@ function Home() {
                     <div className={hom.my_class_top}>
                         <p>내 강의 확인</p>
                     </div>
-                    <div className={hom.my_class_info}>
+                    <div className={`${NoneClass} ${hom.none_class}`}>
+                        강의 정보가 없습니다.
+                    </div>
+                    <div className={`${hom.my_class_info} ${blockClass}`}>
                         <div className={hom.date_time_ct}>
-                            <p>날짜</p><p>시간</p><div className={hom.gray_line}></div><p className={hom.seat_num}>좌석번호</p>
+                            <p>{date}</p><p>{time}</p><div className={hom.gray_line}></div><p className={hom.seat_num}>{myClassData.seatNumber}</p>
                         </div>
                         <div>
-                            <div className={hom.gray_ct}>수업내용</div>
-                            <p>강사명</p>
+                            <div className={hom.gray_ct}>수업명</div>
+                            <p>{myClassData.lectureName}</p>
                         </div>
                         <div>
                             <div className={hom.gray_ct}>강사</div>
-                            <p>강의명</p>
+                            <p>{myClassData.instructorName}</p>
                         </div>
                         <button>강의 정보 확인하기</button>
 
