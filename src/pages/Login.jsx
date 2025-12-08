@@ -24,12 +24,18 @@ export default function Login() {
   const handleLogin = async (e) => {
     e.preventDefault();
 
+    // ⭐ 임시 테스트용: API 호출 막고 바로 홈으로 이동
+    movehome();
+    return;
+
+    /*
+    // 실제 로그인 로직 (나중에 다시 사용할 코드)
     try {
       setLoading(true);
       setMessage('');
 
       const res = await authAPI.login(formData);
-      const { accessToken, refreshToken } = res.data; // 이미지에 나온 응답 형태[image:1]
+      const { accessToken, refreshToken } = res.data;
 
       console.log('accessToken:', accessToken);
       console.log('refreshToken:', refreshToken);
@@ -47,6 +53,7 @@ export default function Login() {
     } finally {
       setLoading(false);
     }
+    */
   };
 
   return (
@@ -100,3 +107,4 @@ export default function Login() {
     </div>
   );
 }
+    
