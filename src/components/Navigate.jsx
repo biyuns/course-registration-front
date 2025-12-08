@@ -14,8 +14,13 @@ export default function Navigation() {
     const moveclassaply = () => navigate('/apply')
     const movetime = () => navigate('/time')
 
+    const movereservationInfo = () => navigate('/ReservationInfo')
+    const movereservationRegi = () => navigate('/ReservationRegi')
+    const movereservationRegiInfo = () => navigate('/ReservationRegiInfo')
+
     return {
         movesignup, signup_normal, signupcomplete, loginpg, movehome,
-        moveclassaply, movetime, reservationpg
+        moveclassaply, movetime, reservationpg, movereservationInfo,
+        movereservationRegi, movereservationRegiInfo
     };
 };
