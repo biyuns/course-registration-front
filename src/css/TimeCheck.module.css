@@ -26,7 +26,19 @@
 }
 
 
+
+
 @media screen and (min-width: 1200px) {
+    .main_time_ct {
+        margin: 0;
+        overflow-y: scroll;
+        height: 600px;
+    }
+
+    .main_time_ct>div {
+        overflow-y: scroll;
+    }
+
     .calender_section {
         margin: 0 178px 0 178px;
 
