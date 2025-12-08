@@ -40,6 +40,27 @@
 
 }
 
+.infos>div>div>button {
+    display: flex;
+    height: 37px;
+
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    align-self: stretch;
+    border-radius: 10px;
+    border: 1px solid #4D4D4D;
+}
+
+.black {
+
+    border: 1px solid #4D4D4D;
+    background: #4D4D4D !important;
+
+    color: #FFF !important;
+
+}
+
 .infos>div>p,
 .infos>div>div {
     display: flex;
