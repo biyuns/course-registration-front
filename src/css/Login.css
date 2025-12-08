@@ -151,6 +151,16 @@
   width: 2rem;
 }
 
+.login-form-ct {
+  display: flex;
+  width : 90%;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  gap : 10px;
+}
+
+
 @media (min-width : 1281px) {
   .mobile-ct {
     display: none;
