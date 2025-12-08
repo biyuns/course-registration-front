@@ -1,10 +1,10 @@
 import HeadSub from '../css/HeaderSub.module.css';
 
-function ManageHeaderSub({ text, button }) {
+function ManageHeaderSub({ text, button, onButtonClick }) {
     return (
         <div className={HeadSub.sub_title}>
             <p>{text}</p>
-            <button>{button}</button>
+            <button onClick={onButtonClick}>{button}</button>
         </div>
     )
 }

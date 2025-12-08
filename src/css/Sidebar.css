@@ -43,6 +43,26 @@
 main {
     flex : 1;
 }
+
+/* 기존 .side-home, .side-schedule, .side-manager는 flex 정렬, padding 등만 두고 */
+
+.side-home,
+.side-schedule,
+.side-manager {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 12px;
+  /* border-radius: 8px; */
+  text-decoration: none;
+  color: inherit;
+}
+
+/* 활성화되었을 때 배경색 */
+.side-active {
+  background-color: #9ED0BE;
+}
+
 @media (min-width : 1281px) {
     .sidebar-ct {
         display: flex;
