@@ -4,7 +4,7 @@ import MobileProfileImg from '../img/mobile-profile.svg'
 
 export default function Header() {
     return (
-        <div>
+        <div className='top-header-style'>
             <header className='top-header-ct'>
                 <picture>
 

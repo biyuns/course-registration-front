@@ -1,18 +1,22 @@
-import Header from "../components/Header";
 import Navigation from "../components/Navigate";
 import '../css/SignUp.css';
 import GoogleLoginimg from '../img/google-login-logo.svg';
 import NaverLoginimg from '../img/naver-login-log.png';
+import SignupTop from '../components/SignupTop.jsx';
+import Logoimg from '../img/login-academy-logo.svg'
+import Header from "../components/Header.jsx";
 
 export default function SignUp() {
-    const { signup_normal } = Navigation();
+    const { termcondition } = Navigation();
     return (
         <div className="media-ct">
+            <SignupTop title="회원가입" />
             <Header />
             <section className="signup-ct">
                 <article className="signup-instructions">
                     <p className="signup-title-ins"> 회원가입 하기 </p>
-                    <p className="signup-sub-ins"> 소셜 로그인 및 이메일로 가입할 수 있습니다.</p>
+                    <p className="signup-logo-img"> <img src={Logoimg} /> </p>
+                    <p className="signup-sub-ins"> 소셜 로그인 및 이메일로 가입할 수 있습니다.</p>                    
                 </article>
 
                 <div className="signup-contour"></div>
@@ -25,7 +29,7 @@ export default function SignUp() {
                     </button>
 
                     <button className="naver-start-btn">
-                         <img src={NaverLoginimg} alt="구글 로고" />
+                        <img src={NaverLoginimg} alt="구글 로고" />
                         <p>네이버로 시작하기</p>
                         <div></div>
                     </button>
@@ -34,10 +38,10 @@ export default function SignUp() {
                 <article className="signup-contour-ct">
                     <div className="signup-half-contour"></div>
                     <p> 또는 </p>
-                    <div className="signup-half-contour"></div>
+                    <div className="signup-half-contour2"></div>
                 </article>
 
-                <button className="normal-start-btn" onClick={signup_normal}> ID/PW 회원가입 </button>
+                <button className="normal-start-btn" onClick={termcondition}> ID/PW 회원가입 </button>
             </section>
 
         </div>

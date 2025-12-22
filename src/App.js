@@ -15,6 +15,7 @@ import ReservationPg from './pages/ReservationPg.jsx';
 import ManagerRsvRegi from './pages/ManagerRsvRegi.jsx';
 import ManagerRsvRegiInfo from './pages/ManageRsvRegiInfo.jsx';
 import ManagerRsvInfo from './pages/ManageRsvInfo.jsx';
+import TermConditionAgree from './pages/Terms_Condition._Agree.jsx';
 
 function App() {
   return (
@@ -33,6 +34,7 @@ function App() {
           <Route path="/ReservationRegi" element={<ManagerRsvRegi />} />
           <Route path="/ReservationRegiInfo" element={<ManagerRsvRegiInfo />} />
           <Route path="/ReservationInfo" element={<ManagerRsvInfo />} />
+          <Route path="/termcondition" element={<TermConditionAgree />} />
 
         </Route>
 

@@ -1,5 +1,131 @@
-@media (min-width:1281px) {
+@media (min-width : 320px) and (max-width : 480px) {
 
+    .signup-ct {
+        display: flex;
+        flex-direction: column;
+        gap: 26px;
+        align-items: center;
+        justify-content: center;
+
+        margin-top: 76px;
+        width: 100%;
+    }
+
+
+    /* 구분선 위쪽 */
+    .signup-contour {
+        display: none;
+    }
+
+    /* 구글, 네이버로 시작하기 컨테이너 */
+    .google-naver-start-ct {
+        display: flex;
+        flex-direction: column;
+        gap: 14px;
+        width: 80%;
+    }
+
+    /* 구글, 네이버 시작하기 버튼 설정 */
+    .google-start-btn,
+    .naver-start-btn {
+        width: 100%;
+        height: 50px;
+
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    /* 구글, 네이버 이미지 로고 크기 설정 */
+    .google-start-btn>img,
+    .naver-start-btn>img {
+        width: 2rem;
+        margin-left: 22px;
+    }
+
+    /* 구글, 네이버 더미 크기 설정 */
+    .google-start-btn>div,
+    .naver-start-btn>div {
+        width: 2rem;
+        margin-right: 22px;
+    }
+
+    /* 구글로 시작하기 버튼 글씨, border, 배경설정 */
+    .google-start-btn {
+        border: 1px solid #A2A2A2;
+        background: #FCFCFC;
+        color: #4D4D4D;
+        font-family: "Pretendard Variable";
+        font-size: 15px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: normal;
+    }
+
+    /* 네이버로 시작하기 버튼 글씨, border, 배경설정 */
+    .naver-start-btn {
+        background: #00C73C;
+        color: #FFF;
+        font-family: "Pretendard Variable";
+        font-size: 15px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: normal;
+    }
+
+    /* 아래쪽 구분선 컨테이너*/
+    .signup-contour-ct {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 80%;
+    }
+
+    /* 아래 구분선 설정 */
+    .signup-half-contour {
+        width: 100%;
+        background: #D8D8D8;
+        height: 2px;
+        /* margin :10px 0px; */
+    }
+
+    /* 구분선 사이 "또는" 글씨 설정 */
+    .signup-contour-ct>p {
+        display: none;
+    }
+
+    /* ID/PW 회원가입 버튼 설정 */
+    .normal-start-btn {
+        width: 80%;
+        height: 50px;
+        border: 1px solid #A2A2A2;
+        background: #FCFCFC;
+    }
+
+    .signup-title-ins {
+        display: none;
+    }
+
+    .signup-sub-ins {
+        color: #4D4D4D;
+        font-family: Pretendard;
+        font-size: 15px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: normal;
+        margin-top : 15px;
+    }
+
+    .top-header-style {
+        display : none;
+    }
+
+}
+
+@media (min-width:1281px) {
+    .signup-logo-img {
+        display : none;
+    }
     /* 회원가입 전체 컨테이너 */
     .signup-ct {
         display: flex;
@@ -111,15 +237,17 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
-        width:70%;
+        width: 70%;
     }
 
     /* 아래 구분선 설정 */
-    .signup-half-contour {
+    .signup-half-contour,
+    .signup-half-contour2 {
         width: 45%;
         background: #D8D8D8;
         height: 1px;
     }
+
     /* 구분선 사이 "또는" 글씨 설정 */
     .signup-contour-ct>p {
         color: #757575;
@@ -129,12 +257,17 @@
         font-weight: 400;
         line-height: normal;
     }
+
     /* ID/PW 회원가입 버튼 설정 */
     .normal-start-btn {
-        width : 70%;
-        height : 50px;
-        border:  1px solid #A2A2A2;
+        width: 70%;
+        height: 50px;
+        border: 1px solid #A2A2A2;
         background: #FCFCFC;
+    }
+
+    .signup-top-style {
+        display : none;
     }
 }
 

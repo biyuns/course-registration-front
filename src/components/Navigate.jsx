@@ -8,6 +8,7 @@ export default function Navigation() {
     const signupcomplete = () => navigate('/signupComplete')
     const loginpg = () => navigate("/")
     const reservationpg = () => navigate("/reservation")
+    const termcondition = () => navigate("/termcondition")
 
     // 시은 작업 페이지 네비게이션
     const movehome = () => navigate("/home")
@@ -21,6 +22,6 @@ export default function Navigation() {
     return {
         movesignup, signup_normal, signupcomplete, loginpg, movehome,
         moveclassaply, movetime, reservationpg, movereservationInfo,
-        movereservationRegi, movereservationRegiInfo
+        movereservationRegi, movereservationRegiInfo, termcondition
     };
 };
