@@ -15,7 +15,15 @@ import ReservationPg from './pages/ReservationPg.jsx';
 import ManagerRsvRegi from './pages/ManagerRsvRegi.jsx';
 import ManagerRsvRegiInfo from './pages/ManageRsvRegiInfo.jsx';
 import ManagerRsvInfo from './pages/ManageRsvInfo.jsx';
+<<<<<<< Updated upstream
 import TermConditionAgree from './pages/Terms_Condition._Agree.jsx';
+=======
+import MyPage from './pages/MyPage.jsx';
+import MyClassInfo from './pages/MyClassInfo.jsx';
+import CheckPassword from './pages/CheckPassword.jsx';
+import ParentPassword from './pages/ParentPassword.jsx';
+import ChangeInfo from './pages/ChangeInfo.jsx';
+>>>>>>> Stashed changes
 
 function App() {
   return (
@@ -34,12 +42,20 @@ function App() {
           <Route path="/ReservationRegi" element={<ManagerRsvRegi />} />
           <Route path="/ReservationRegiInfo" element={<ManagerRsvRegiInfo />} />
           <Route path="/ReservationInfo" element={<ManagerRsvInfo />} />
+<<<<<<< Updated upstream
           <Route path="/termcondition" element={<TermConditionAgree />} />
+=======
+          <Route path="/mypage" element={<MyPage />} />
+          <Route path="/myClassInfo" element={<MyClassInfo />} />
+          <Route path="/password" element={<CheckPassword />} />
+          <Route path="/parent-password" element={<ParentPassword />} />
+          <Route path='/change-info' element={<ChangeInfo />} />
+>>>>>>> Stashed changes
 
         </Route>
 
       </Routes>
-    </BrowserRouter>
+    </BrowserRouter >
   );
 }
 

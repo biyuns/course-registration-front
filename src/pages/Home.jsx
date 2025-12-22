@@ -5,6 +5,7 @@ import Header from '../components/Header';
 import { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import { authAPI } from '../components/apiClient';
+import ClassCt from '../components/ClassCt';
 
 const dummyLectureList = [
   {
@@ -79,9 +80,9 @@ function Home() {
     }
   };
 
-//   useEffect(() => {
-//     fetchMyClassData();
-//   }, []);
+  //   useEffect(() => {
+  //     fetchMyClassData();
+  //   }, []);
 
   // 2) 좌석 예매 페이지에서 넘어온 예약 정보가 있으면 그걸 우선 사용
   useEffect(() => {
@@ -141,8 +142,8 @@ function Home() {
                 <p>
                   {myClassData
                     ? myClassData.lectureName ||
-                      myClassData.subjectName ||
-                      '[정규반] 국어'
+                    myClassData.subjectName ||
+                    '[정규반] 국어'
                     : ''}
                 </p>
               </div>
@@ -156,16 +157,18 @@ function Home() {
 
           <div className={hom.class_button_ct}>
             <button className={hom.class_apply_btn} onClick={moveclassaply}>
-              <p>강의 신청</p>
+              <p>수업 신청</p>
             </button>
-            <button className={hom.class_check_btn} onClick={movetime}>
-              <p>시간표 확인</p>
-            </button>
+
           </div>
 
           <section className={hom.home_bottom}>
             <div className={hom.gray_hr}>
               <div>수강정보</div>
+            </div>
+            <div className={hom.class_apply_app_ct}>
+              <ClassCt />
+              <ClassCt />
             </div>
             <div className={hom.class_apply_web_ct}>
               {dummyLectureList.map((lecture, index) => (

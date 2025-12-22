@@ -1,0 +1,63 @@
+.infos {
+    margin: 0 222px 0 217px;
+    border-bottom: 1px solid #A2A2A2;
+    padding-bottom: 49px;
+}
+
+.infos>p {
+    color: #4D4D4D;
+    font-family: Pretendard;
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    margin: 69px 0 27px 0;
+}
+
+.infos_form {
+    width: 522px;
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+}
+
+.infos_form>div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.infos_form>div>label {
+    color: #8B8686;
+    font-family: Pretendard;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
+.infos_form>div>input {
+    width: 372px;
+    display: flex;
+    height: 52px;
+    padding: 14px 20px;
+    align-items: center;
+    gap: 5px;
+    flex-shrink: 0;
+    align-self: stretch;
+    border-radius: 10px;
+    border: 1px solid #D5D5D5;
+    color: #4D4D4D;
+    font-family: "Pretendard Variable";
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    border-radius: 10px;
+    border: 1px solid #D5D5D5;
+    background: #ECECEC;
+}
+
+.button_ct {
+    margin: 53px 352px 0 330px;
+}

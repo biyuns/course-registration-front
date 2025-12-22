@@ -1,0 +1,192 @@
+.mypage_header {
+    width: 100%;
+    height: 96px;
+    background: #ECECEC;
+    padding-right: 43px;
+}
+
+.profile_section {
+    height: 217px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.profile_section>div {
+    width: 71px;
+    height: 71px;
+    background-color: #B0BEC5;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 32px 0 18px 0;
+}
+
+.my_name {
+    color: #4D4D4D;
+    font-family: "Pretendard Variable";
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+
+.profile_section>button {
+    display: flex;
+    height: 35px;
+    width: 65px;
+    padding: 6px 12px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px;
+    border: 1px solid #A2A2A2;
+    color: #01AEB0;
+    font-family: Pretendard;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    background: #FCFCFC;
+    margin: 19px 20px;
+}
+
+.gray_div {
+    width: 100%;
+    height: 14px;
+    background: #D9D9D9;
+}
+
+.my_class_info_header {
+    height: 65px;
+    width: 100%;
+    color: #4D4D4D;
+    font-family: Pretendard;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 1px solid #ECECEC;
+
+}
+
+.my_classes {
+    margin: 25px;
+}
+
+.mypage_header>div {
+    padding-top: 55px;
+    display: flex;
+    color: #4D4D4D;
+    font-family: Pretendard;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+
+.mypage_header>div>button {
+    display: flex;
+    width: 33px;
+    height: 33px;
+    padding: 10px;
+    align-items: center;
+    gap: 10px;
+    background-color: #ECECEC;
+    margin-left: 10px;
+}
+
+.mypage_header>div>p {
+    margin: auto;
+}
+
+.my_id {
+    display: none;
+}
+
+
+@media screen and (min-width: 1200px) {
+    .mypage_header {
+        display: none;
+    }
+
+    .profile_section {
+        height: 310px;
+    }
+
+
+
+    .profile_section>div {
+        width: 93px;
+        height: 93px;
+        margin: 41px 0 8px 0;
+    }
+
+    .profile_section>div>img {
+        width: 55px;
+        height: 55px;
+    }
+
+    .my_name {
+        font-size: 36px;
+        height: 43px;
+    }
+
+    .profile_section>button {
+        margin: 21px 0 30px 0;
+    }
+
+    .my_id {
+        display: block;
+        color: #A2A2A2;
+        text-align: center;
+        font-family: "Pretendard Variable";
+        font-size: 20px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+        height: 24px;
+    }
+
+    .profile_section>button {
+        width: 160px;
+        height: 47px;
+        font-size: 24px;
+
+
+        border-radius: 30px;
+    }
+
+    .gray_div {
+        display: none;
+    }
+
+    .my_class_info_header>p {
+        font-size: 24px;
+        margin: 0 0 0 0;
+        padding-bottom: 18px;
+        width: 497px;
+        border-bottom: 3px solid #01AEB0;
+        text-align: center;
+
+    }
+
+    .my_class_info_header {
+        border: 0;
+        margin-bottom: 46px;
+    }
+
+    .my_classes {
+        display: none;
+    }
+
+    .my_classes_web {
+        display: block;
+        margin: 0 145px 0 123px;
+    }
+}
