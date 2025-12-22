@@ -42,7 +42,18 @@
     border-right: 1px solid #D8D8D8;
 }
 
-.class_time>p:nth-of-type(1) {
+.seat_num {
+    color: #01AEB0;
+    text-align: center;
+    font-family: Pretendard;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 14px;
+    /* 100% */
+}
+
+.start_t {
     color: #292929;
     text-align: center;
     font-family: Pretendard;
@@ -50,20 +61,59 @@
     font-style: normal;
     font-weight: 600;
     line-height: normal;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
-.class_time>p:nth-of-type(2) {
+.start_time {
+    color: #292929;
+    text-align: center;
+    font-family: Pretendard;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 14px;
+    /* 116.667% */
+}
+
+.ent_t {
     color: #A2A2A2;
     text-align: center;
     font-family: Pretendard;
     font-size: 9px;
     font-style: normal;
-    font-weight: 500;
+    font-weight: 700;
     line-height: normal;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-self: stretch;
     margin-bottom: 11px;
 }
 
+.ent_time {
+    color: #A2A2A2;
+    text-align: center;
+    font-family: Pretendard;
+    font-size: 9px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-self: stretch;
+    margin-bottom: 10px;
+    height: 7px;
+
+}
+
 .can_seat {
+    height: 23px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     color: #A2A2A2;
     text-align: center;
     font-family: Pretendard;
@@ -74,6 +124,10 @@
     border-radius: 0 0 0 10px;
     border: 1px solid #D8D8D8;
     background: linear-gradient(0deg, #D8D8D8 0%, #D8D8D8 100%), #FCFCFC;
+}
+
+.can_seat>p:first-of-type {
+    color: #2C8FFF;
 }
 
 
@@ -170,4 +224,31 @@
 
 .class_ct_web>button {
     margin: 0 60px 0 auto;
+}
+
+.two_button_ct {
+    display: flex;
+    flex-direction: column;
+    margin: 0 60px 0 auto;
+    gap: 5px;
+
+}
+
+.two_button_ct>button {
+    border-radius: 50px;
+    border: 2px solid #01AEB0;
+    background: #FCFCFC;
+    display: flex;
+    width: 180px;
+    height: 30px;
+    padding: 17px 51px;
+    justify-content: center;
+    align-items: center;
+    color: #01AEB0;
+    text-align: center;
+    font-family: Pretendard;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
 }
