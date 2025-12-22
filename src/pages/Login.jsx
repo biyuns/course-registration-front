@@ -1,10 +1,11 @@
 import '../css/Login.css';
 import GoogleLoginimg from '../img/google-login-logo.svg';
 import NaverLoginimg from '../img/naver-login-log.png';
-import Header from '../components/Header';
 import Navigation from '../components/Navigate.jsx';
 import { useState } from 'react';
-import { authAPI } from '../components/apiClient';
+import { authAPI } from '../components/apiClient.jsx';
+import SignupTop from '../components/SignupTop.jsx';
+import Logoimg from '../img/login-academy-logo.svg' 
 
 export default function Login() {
   const { movesignup, movehome } = Navigation();
@@ -58,9 +59,9 @@ export default function Login() {
 
   return (
     <div className='media-ct'>
-      <Header />
-      <section className='login-ct'>
-        <p> 로그인 </p>
+      <SignupTop title="로그인"/>
+        <section className='login-ct'>
+        <p> <img src={Logoimg} /> </p>
 
         <form className="login-form-ct" onSubmit={handleLogin}>
           <input
@@ -97,6 +98,13 @@ export default function Login() {
           <p className='password-find'> 비밀번호 찾기 </p>
           <div> | </div>
           <p className='signup' onClick={movesignup}> 회원가입 </p>
+        </div>
+
+        <div className='sns-login-inf'> 
+          <p className='sns-line'></p>
+          <p className='sns-title'>SNS 계정으로 로그인</p>
+          <p className='sns-line'></p>
+
         </div>
 
         <div className='google-naver-login'>
