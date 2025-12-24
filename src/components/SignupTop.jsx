@@ -1,4 +1,5 @@
 import Backbtn from '../img/backbtn.svg'
+import '../css/Login.css'
 
 function SignupTop({ title }) {
     return (
