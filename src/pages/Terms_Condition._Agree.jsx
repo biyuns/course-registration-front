@@ -1,7 +1,10 @@
+import Navigation from "../components/Navigate";
 import SignupTop from "../components/SignupTop";
 import '../css/TermConditionAgree.css'
 
 export default function TermConditionAgree() {
+
+    const { termallagree, termpersoninf, termmarketing, signup_normal } = Navigation(); 
     return (
         <div>
             <SignupTop title='약관동의' />
@@ -11,17 +14,17 @@ export default function TermConditionAgree() {
 
                 <div className="agree-essential-ct">
                     <p> 이용약관 전체 동의 <span className="essential-sub">  (필수) </span></p>
-                    <p className="agree-detail"> 보기 </p>
+                    <p className="agree-detail" onClick={termallagree}> 보기 </p>
                 </div>
 
                 <div className="agree-essential-ct">
                     <p> 개인정보 수집 및 이용 <span className="essential-sub"> (필수) </span></p>
-                    <p className="agree-detail"> 보기 </p>
+                    <p className="agree-detail" onClick={termpersoninf}> 보기 </p>
                 </div>
 
                 <div className="agree-essential-ct">
                     <p> 마케팅 목적의 개인정보 수집 및 이용 <span className="essential-sub"> (필수) </span></p>
-                    <p className="agree-detail"> 보기 </p>
+                    <p className="agree-detail" onClick={termmarketing}> 보기 </p>
                 </div>
 
                 <div className="agree-essential-ct">
@@ -41,6 +44,8 @@ export default function TermConditionAgree() {
                     <button> </button>
                 </div>
             </section>
+
+            <button className="agree-next-btn" onClick={signup_normal}> 다음 </button>
 
         </div>
     )

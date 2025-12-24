@@ -6,6 +6,7 @@ import '../css/SignUpComplete.css'
 import Navigation from "../components/Navigate";
 import { useEffect, useState } from "react";
 import { authAPI } from "../components/apiClient";
+import SignupTop2 from "../components/SignupTop2";
 
 export default function SignUpComplete() {
     const { loginpg } = Navigation()
@@ -29,12 +30,13 @@ export default function SignUpComplete() {
     return (
         <div className="media-ct">
             <Header />
+            <SignupTop2 step={3}/>
             <section className="signup-complete-ct">
                 <p className="complete-title"> 시대원학원 회원가입 </p>
 
                 <div className="complete-check-img-ct">
                     <img src={CompleteCircle} alt="" />
-                    <img className="completecheck-img" src={CompleteCheck} alt="" />
+                    <img className="completecheck-img" src={CompleteCheck} alt="체크표시" />
                 </div>
 
                 <p className="complete-message"> 회원가입 완료</p>
@@ -44,7 +46,7 @@ export default function SignUpComplete() {
                     성공적으로 완료되었습니다.
                 </p>
 
-                <button className="complete-btn" onClick={loginpg}> 로그인 바로하기 </button>
+                <button className="complete-btn" onClick={loginpg}> 로그인하기 </button>
             </section>
         </div>
     );

@@ -9,6 +9,14 @@ export default function Navigation() {
     const loginpg = () => navigate("/")
     const reservationpg = () => navigate("/reservation")
     const termcondition = () => navigate("/termcondition")
+    const termallagree = () => navigate("/termallagree")
+    const termpersoninf = () => navigate("/termpersoninf")
+    const termmarketing = () => navigate("/termmarketing")
+    const idfind = () => navigate("/idfind")
+    const idfind2 = () => navigate("/idfind2")
+    const pswfind = () => navigate("/pswfind")
+    const pswreseting = () => navigate("/pswreseting")
+    const pswchangecomplete = () => navigate("/pswchangecomplete")
 
     // 시은 작업 페이지 네비게이션
     const movehome = () => navigate("/home")
@@ -22,6 +30,8 @@ export default function Navigation() {
     return {
         movesignup, signup_normal, signupcomplete, loginpg, movehome,
         moveclassaply, movetime, reservationpg, movereservationInfo,
-        movereservationRegi, movereservationRegiInfo, termcondition
+        movereservationRegi, movereservationRegiInfo, termcondition,
+        termallagree, termpersoninf, termmarketing, idfind, pswfind
+        , idfind2, pswreseting, pswchangecomplete
     };
 };

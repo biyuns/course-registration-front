@@ -6,9 +6,10 @@ import { useState } from 'react';
 import { authAPI } from '../components/apiClient.jsx';
 import SignupTop from '../components/SignupTop.jsx';
 import Logoimg from '../img/login-academy-logo.svg' 
+import Header from '../components/Header.jsx';
 
 export default function Login() {
-  const { movesignup, movehome } = Navigation();
+  const { movesignup, movehome, idfind, pswfind } = Navigation();
 
   const [formData, setFormData] = useState({
     username: '',
@@ -60,6 +61,7 @@ export default function Login() {
   return (
     <div className='media-ct'>
       <SignupTop title="로그인"/>
+      <Header />
         <section className='login-ct'>
         <p> <img src={Logoimg} /> </p>
 
@@ -93,9 +95,9 @@ export default function Login() {
         </form>
 
         <div className='find-singup-ct'>
-          <p className='id-find'> 아이디 찾기 </p>
+          <p className='id-find' onClick={idfind}> 아이디 찾기 </p>
           <div> | </div>
-          <p className='password-find'> 비밀번호 찾기 </p>
+          <p className='password-find' onClick={pswfind}> 비밀번호 찾기 </p>
           <div> | </div>
           <p className='signup' onClick={movesignup}> 회원가입 </p>
         </div>

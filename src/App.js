@@ -15,15 +15,20 @@ import ReservationPg from './pages/ReservationPg.jsx';
 import ManagerRsvRegi from './pages/ManagerRsvRegi.jsx';
 import ManagerRsvRegiInfo from './pages/ManageRsvRegiInfo.jsx';
 import ManagerRsvInfo from './pages/ManageRsvInfo.jsx';
-<<<<<<< Updated upstream
 import TermConditionAgree from './pages/Terms_Condition._Agree.jsx';
-=======
 import MyPage from './pages/MyPage.jsx';
 import MyClassInfo from './pages/MyClassInfo.jsx';
 import CheckPassword from './pages/CheckPassword.jsx';
 import ParentPassword from './pages/ParentPassword.jsx';
 import ChangeInfo from './pages/ChangeInfo.jsx';
->>>>>>> Stashed changes
+import TermAllAgree from './pages/TermAllAgree.jsx';
+import TermPersonalInf from './pages/TermPersonalInf.jsx';
+import TermMarketing from './pages/TermMarketing.jsx';
+import PasswordFind from './pages/PasswordFind.jsx';
+import IdFind from './pages/IdFind.jsx';
+import IdFind2 from './pages/IdFind2.jsx';
+import PswRessting from './css/PswResetting.jsx';
+import PswChangeComplete from './pages/PswChangeComplete.jsx';
 
 function App() {
   return (
@@ -42,15 +47,20 @@ function App() {
           <Route path="/ReservationRegi" element={<ManagerRsvRegi />} />
           <Route path="/ReservationRegiInfo" element={<ManagerRsvRegiInfo />} />
           <Route path="/ReservationInfo" element={<ManagerRsvInfo />} />
-<<<<<<< Updated upstream
           <Route path="/termcondition" element={<TermConditionAgree />} />
-=======
+          <Route path="/idfind" element={<IdFind />} />
+          <Route path="/idfind2" element={<IdFind2 />} />
+          <Route path="/pswfind" element={<PasswordFind />} />
+          <Route path="/pswreseting" element={<PswRessting />} />
+          <Route path="/pswchangecomplete" element={<PswChangeComplete />} />
+          <Route path="/termallagree" element={<TermAllAgree />} />
+          <Route path="/termpersoninf" element={<TermPersonalInf />} /> 
+          <Route path="/termmarketing" element={<TermMarketing />} /> 
           <Route path="/mypage" element={<MyPage />} />
           <Route path="/myClassInfo" element={<MyClassInfo />} />
           <Route path="/password" element={<CheckPassword />} />
           <Route path="/parent-password" element={<ParentPassword />} />
           <Route path='/change-info' element={<ChangeInfo />} />
->>>>>>> Stashed changes
 
         </Route>
 
