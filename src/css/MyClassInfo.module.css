@@ -159,6 +159,31 @@
 
 }
 
+.my_class_btn {
+    margin-right: 26px;
+    margin-top: 23px;
+}
+
+.my_class_btn>button {
+    display: flex;
+    height: 33px;
+    padding: 6px 12px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    align-self: stretch;
+    border-radius: 20px;
+    background: #B0BEC5;
+    color: #FCFCFC;
+    font-family: Pretendard;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    width: 100%;
+}
+
 .my_class_btns>button {
     border-radius: 20px;
     border: 1px solid #01AEB0;
@@ -179,4 +204,104 @@
     line-height: normal;
     width: 50%;
 
+}
+
+.modal {
+    border-radius: 10px;
+    border: 1px solid #2C8FFF;
+    background: #FCFCFC;
+    box-shadow: 0 0 5px 0 rgba(44, 143, 255, 0.50);
+    height: 133.03px;
+    width: 100%;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
+    position: fixed;
+    width: 90%;
+
+}
+
+.modal p {
+    color: #2C8FFF;
+    text-align: center;
+    font-family: Pretendard;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    margin: 30px 0 25px 0;
+
+}
+
+.modal>div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.modal>div>div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 95%;
+    border-top: 1px solid #A2A2A2;
+    height: 33px;
+}
+
+.modal button {
+    width: 100%;
+    font-family: Pretendard;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    background-color: #FCFCFC;
+}
+
+.modal button:first-of-type {
+    color: #4D4D4D;
+    border-right: 1px solid #A2A2A2;
+}
+
+.modal button:last-of-type {
+    color: #2C8FFF;
+}
+
+@media screen and (min-width: 1200px) {
+    .modal {
+        border-radius: 20px;
+        border: 1px solid #2C8FFF;
+        background: #FCFCFC;
+        box-shadow: 0 0 10px 0 rgba(44, 143, 255, 0.50);
+
+        width: 848.861px;
+        height: 279px;
+        top: 50%;
+        left: 55%;
+        transform: translate(-50%, -50%);
+        position: fixed;
+
+
+    }
+
+    .modal p {
+        color: #2C8FFF;
+        text-align: center;
+        font-family: Pretendard;
+        font-size: 28px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: normal;
+        margin: 63px 0 52px 0;
+    }
+
+    .modal>div>div {
+
+        height: 80px;
+    }
+
+    .modal button {
+        height: 80px;
+        font-size: 24px;
+    }
 }

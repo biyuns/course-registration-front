@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import '../css/Calender.css';
 import CalenderDate from './CalenderDate';
 
-function Calender() {
+function Calender({ clickDate }) {
 
     const [calenderInfo, setCalenderInfo] = useState({
         year: 0,
@@ -15,6 +15,13 @@ function Calender() {
     })
 
     const [totalDates, setTotalDates] = useState([]);
+    const [selectedId, setSelectedId] = useState(null);
+
+    const now = new Date();
+    const todayYear = now.getFullYear();
+    const todayMonth = now.getMonth() + 1;
+    const todayDate = now.getDate();
+
 
     useEffect(() => {
         getCalendarData()
@@ -107,7 +114,19 @@ function Calender() {
             <p>{calenderInfo.month}</p>
             <div className="total-date-ct">
                 {totalDates.map((totalDate) => (
-                    <CalenderDate key={totalDate.id}{...totalDate} currentMonth={calenderInfo.month} />
+                    <CalenderDate
+                        key={totalDate.id}{...totalDate}
+                        currentMonth={calenderInfo.month}
+                        isActive={selectedId === totalDate.id}
+                        isToday={
+                            calenderInfo.year === todayYear &&
+                            totalDate.month === todayMonth &&
+                            totalDate.date === todayDate
+                        }
+                        clickDate={() => {
+                            setSelectedId(totalDate.id); // 3. 클릭 시 해당 id로 상태 업데이트
+                            clickDate(totalDate.date);   // 4. 부모(TimeCheck)의 필터링 함수 실행
+                        }} />
                 ))}
             </div>
 

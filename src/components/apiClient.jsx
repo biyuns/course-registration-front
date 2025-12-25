@@ -1,26 +1,44 @@
 import axios from 'axios'
+import CheckPassword from '../pages/CheckPassword';
 
 const apiClient = axios.create({
-    baseURL: 'https://13.125.89.234.nip.io',
-    headers: {
-        'Content-Type': 'application/json',
-    },
+  baseURL: 'https://13.125.89.234.nip.io',
+  headers: {
+    'Content-Type': 'application/json',
+  },
 });
 
 apiClient.interceptors.request.use((config) => {
-  const token = localStorage.getItem('accessToken');   // 로그인 시 저장해 둔 토큰
-  if (token) {
+  const token = localStorage.getItem('accessToken');
+
+  // 토큰이 존재하고, 문자열 'undefined'나 'null'이 아닐 때만 헤더 추가
+  if (token && token !== "undefined" && token !== "null") {
     config.headers.Authorization = `Bearer ${token}`;
+  } else {
+    // 토큰이 없으면 헤더에서 Authorization 항목을 제거 (혹은 설정 안 함)
+    delete config.headers.Authorization;
   }
   return config;
+}, (error) => {
+  return Promise.reject(error);
 });
 
+
 export const authAPI = {
-    login: (data) => apiClient.post('/login', data),   // 로그인
-    signup: (data) => apiClient.post('/api/user/signup', data), // 회원가입
-    signupcomplete: (data) => apiClient.get('/api/user/mypage', data),
-    getMyReservations: () => apiClient.get('/api/reservations/myRV'),
-    getLectureList: () => apiClient.get('/api/lectures/list'),
+  login: (data) => apiClient.post('/login', data),   // 로그인
+  signup: (data) => apiClient.post('/api/user/signup', data), // 회원가입
+  signupcomplete: (data) => apiClient.get('/api/user/mypage', data),
+  getMyReservations: () => apiClient.get('/api/reservations/myRV'),
+  getLectureList: () => apiClient.get('/api/lectures/list'),
+  getMyInfo: () => apiClient.get('/api/user/mypage'),
+  checkPassword: () => apiClient.post('/api/user/verify-password'),
+  changeInfo: (data) => apiClient.put('/api/user/mypage', data),
+  changePassword: (data) => apiClient.patch('/api/user/password', data),
+  regiInstructors: (data) => apiClient.post('/api/admin/instructors', data),
+  regiSubjects: (data) => apiClient.post('/api/admin/subjects', data),
+  regiClassrooms: (data) => apiClient.post('/api/admin/classrooms', data),
+  deleteMySeat: (reservationId) => apiClient.delete(`/api/reservations/myRV/${reservationId}`),
+  secessionUser: (data) => apiClient.delete('/api/user/mypage', data),
 };
 
 export default apiClient;

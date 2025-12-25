@@ -16,6 +16,7 @@ import ManagerRsvRegi from './pages/ManagerRsvRegi.jsx';
 import ManagerRsvRegiInfo from './pages/ManageRsvRegiInfo.jsx';
 import ManagerRsvInfo from './pages/ManageRsvInfo.jsx';
 import TermConditionAgree from './pages/Terms_Condition._Agree.jsx';
+
 import MyPage from './pages/MyPage.jsx';
 import MyClassInfo from './pages/MyClassInfo.jsx';
 import CheckPassword from './pages/CheckPassword.jsx';
@@ -29,6 +30,7 @@ import IdFind from './pages/IdFind.jsx';
 import IdFind2 from './pages/IdFind2.jsx';
 import PswRessting from './css/PswResetting.jsx';
 import PswChangeComplete from './pages/PswChangeComplete.jsx';
+
 
 function App() {
   return (
@@ -47,6 +49,7 @@ function App() {
           <Route path="/ReservationRegi" element={<ManagerRsvRegi />} />
           <Route path="/ReservationRegiInfo" element={<ManagerRsvRegiInfo />} />
           <Route path="/ReservationInfo" element={<ManagerRsvInfo />} />
+
           <Route path="/termcondition" element={<TermConditionAgree />} />
           <Route path="/idfind" element={<IdFind />} />
           <Route path="/idfind2" element={<IdFind2 />} />
@@ -54,8 +57,8 @@ function App() {
           <Route path="/pswreseting" element={<PswRessting />} />
           <Route path="/pswchangecomplete" element={<PswChangeComplete />} />
           <Route path="/termallagree" element={<TermAllAgree />} />
-          <Route path="/termpersoninf" element={<TermPersonalInf />} /> 
-          <Route path="/termmarketing" element={<TermMarketing />} /> 
+          <Route path="/termpersoninf" element={<TermPersonalInf />} />
+          <Route path="/termmarketing" element={<TermMarketing />} />
           <Route path="/mypage" element={<MyPage />} />
           <Route path="/myClassInfo" element={<MyClassInfo />} />
           <Route path="/password" element={<CheckPassword />} />

@@ -54,6 +54,16 @@
     box-sizing: border-box;
 }
 
+.today {
+    background-color: #D8D8D8;
+}
+
+.click {
+    background-color: #2C8FFF;
+    color: #FFF;
+}
+
+
 @media screen and (min-width: 1200px) {
     .calender-div>p {
         font-size: 30px;
