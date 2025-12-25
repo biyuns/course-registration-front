@@ -252,3 +252,25 @@
     font-weight: 500;
     line-height: normal;
 }
+
+.two_button_ct_manage {
+    flex-direction: row !important;
+    margin: 0 60px 0 auto;
+    gap: 20px;
+
+}
+
+.two_button_ct_manage>button {
+    width: 200px;
+    height: 50px;
+    border: 2px solid #01AEB0;
+    background: #FCFCFC;
+    border-radius: 10px;
+    color: #01AEB0;
+    text-align: center;
+    font-family: Pretendard;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}

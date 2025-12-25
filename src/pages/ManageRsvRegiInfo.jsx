@@ -1,88 +1,101 @@
 import Header from "../components/Header";
 import ManageHeaderSub from "../components/ManageHeaderSub";
 import rsvRegiInfo from "../css/RsvRegiInfo.module.css";
-import ClassCtWeb from "../components/ClassCtWeb";
+import ClassCtManage from "../components/ClassCtManage";
 import ManageReserveHeader from "../components/ManageReserveHeader";
 import { useState } from "react"; // ⭐️ useState 훅을 가져옵니다.
+import Navigation from "../components/Navigate";
 
-
-// 초기 더미 데이터 정의
-const initialDummyLectureList = [
+const dummyLectureList = [
     {
-        // 10(수) 18:00, 김수정 | 601호, 국어, 2025-12-07~2025-12-09
-        id: 1, // ⭐️ 고유 ID 추가
-        startTime: "2025-12-10T18:00:00",
+        lectureId: 1,
+        message: "예약 등록 반 목록 조회 성공",
+        classroomId: 1,
+        classroomName: "601호",
+        instructorId: 1,
         instructorName: "정지훈",
-        classroomName: "601호",
+        subjectId: 1,
         subjectName: "[정규반] 국어",
+        startTime: "2025-12-01T18:00:00",
+        endTime: "2025-12-01T21:00:00",
         reservationOpenAt: "2025-12-07T00:00:00",
         reservationCloseAt: "2025-12-09T23:59:59",
+        totalSeats: 120,
+        reservedSeats: 30,
+        availableSeats: 90,
     },
     {
-        // 10(수) 12:00, 김수정 | 601호, 국어, 2025-12-07~2025-12-09
-        id: 2, // ⭐️ 고유 ID 추가
-        startTime: "2025-12-10T12:00:00",
+        lectureId: 2,
+        message: "예약 등록 반 목록 조회 성공",
+        classroomId: 1,
+        classroomName: "601호",
+        instructorId: 2,
         instructorName: "김수정",
-        classroomName: "601호",
+        subjectId: 1,
         subjectName: "[정규반] 국어",
+        startTime: "2025-12-10T12:00:00",
+        endTime: "2025-12-10T15:00:00",
         reservationOpenAt: "2025-12-07T00:00:00",
         reservationCloseAt: "2025-12-09T23:59:59",
+        totalSeats: 120,
+        reservedSeats: 80,
+        availableSeats: 40,
     },
     {
-        // 12(금) 18:00, 유지은| 601호, 영어, 2025-12-08~2025-12-11
-        id: 3, // ⭐️ 고유 ID 추가
-        startTime: "2025-12-12T18:00:00",
-        instructorName: "박한종",
+        lectureId: 3,
+        message: "예약 등록 반 목록 조회 성공",
+        classroomId: 1,
         classroomName: "601호",
+        instructorId: 3,
+        instructorName: "박한종",
+        subjectId: 2,
         subjectName: "[특강] 영어",
+        startTime: "2025-12-12T18:00:00",
+        endTime: "2025-12-12T21:00:00",
         reservationOpenAt: "2025-12-08T00:00:00",
         reservationCloseAt: "2025-12-11T23:59:59",
+        totalSeats: 100,
+        reservedSeats: 100,
+        availableSeats: 0,
     },
     {
-        // 11(목) 18:00, 유지은| 601호, 영어, 2025-12-07~2025-12-10
-        id: 4, // ⭐️ 고유 ID 추가
-        startTime: "2025-12-11T18:00:00",
-        instructorName: "유지은",
+        lectureId: 4,
+        message: "예약 등록 반 목록 조회 성공",
+        classroomId: 1,
         classroomName: "601호",
+        instructorId: 4,
+        instructorName: "유지은",
+        subjectId: 2,
         subjectName: "[정규반] 영어",
+        startTime: "2025-12-11T18:00:00",
+        endTime: "2025-12-11T21:00:00",
         reservationOpenAt: "2025-12-07T00:00:00",
         reservationCloseAt: "2025-12-10T23:59:59",
+        totalSeats: 110,
+        reservedSeats: 50,
+        availableSeats: 60,
     },
 ];
 
 
 function ManagerRsvRegiInfo() {
-    // ⭐️ useState를 사용하여 목록 상태 관리
-    const [lectureList, setLectureList] = useState(initialDummyLectureList);
 
-    // ⭐️ 예약 취소 처리 함수
-    const handleCancelReservation = (lectureId) => {
-        // 실제로는 API 호출을 통해 서버에 취소 요청을 보내야 합니다.
-        const isConfirmed = window.confirm(`${lectureId}번 강의 예약을 정말 취소하시겠습니까?`);
+    const { movereservationRegi } = Navigation();
 
-        if (isConfirmed) {
-            // 취소가 확인되면 해당 ID를 가진 항목을 제외하고 새로운 목록을 생성
-            const updatedList = lectureList.filter(lecture => lecture.id !== lectureId);
-            setLectureList(updatedList);
-            console.log(`강의 ID ${lectureId}번이 목록에서 제거되었습니다.`);
-        }
-    };
+    const [lectureList, setLectureList] = useState(dummyLectureList);
+
 
     return (
         <>
             <Header />
             <ManageReserveHeader />
             <section>
-                <ManageHeaderSub text="예약등록정보" button="등록하기" />
+                <ManageHeaderSub text="예약등록정보" button="등록하기" onButtonClick={movereservationRegi} />
                 <div className={rsvRegiInfo.class_ct}>
-                    {/* ⭐️ 상태로 관리되는 lectureList를 map으로 순회 */}
-                    {lectureList.map((lecture, index) => (
-                        <ClassCtWeb
-                            key={lecture.id} // 고유 ID를 key로 사용
+                    {lectureList.map((lecture) => (
+                        <ClassCtManage
+                            key={lecture.lectureId}
                             lectureData={lecture}
-                            btnText="예약취소"
-                            // ⭐️ 취소 함수를 prop으로 전달, 현재 강의 ID를 인수로 넘겨줌
-                            click={() => handleCancelReservation(lecture.id)}
                         />
                     ))}
                 </div>

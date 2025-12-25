@@ -14,6 +14,7 @@
     margin: 69px 0 27px 0;
 }
 
+.infos_form_white,
 .infos_form {
     width: 522px;
     display: flex;
@@ -21,12 +22,14 @@
     gap: 22px;
 }
 
+.infos_form_white>div,
 .infos_form>div {
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
+.infos_form_white>div>label,
 .infos_form>div>label {
     color: #8B8686;
     font-family: Pretendard;
@@ -36,6 +39,7 @@
     line-height: normal;
 }
 
+.infos_form_white>div>input,
 .infos_form>div>input {
     width: 372px;
     display: flex;
@@ -58,6 +62,95 @@
     background: #ECECEC;
 }
 
+
+.infos_form_white>div>input {
+    background: #FCFCFC !important;
+}
+
+.infos_form_white>div:first-of-type>input {
+    background: #ECECEC !important;
+}
+
 .button_ct {
     margin: 53px 352px 0 330px;
+    display: flex;
+    gap: 45px;
+
+}
+
+.button_ct>button {
+    border-radius: 10px;
+    border: 1px solid #01AEB0;
+    background: #FCFCFC;
+    display: flex;
+    height: 52px;
+    padding: 14px 20px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    color: #01AEB0;
+    font-family: "Pretendard Variable";
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
+.modal {
+    border-radius: 20px;
+    border: 1px solid #2C8FFF;
+    background: #FCFCFC;
+    box-shadow: 0 0 10px 0 rgba(44, 143, 255, 0.50);
+    width: 848.861px;
+    height: 279px;
+    position: fixed;
+    top: 50%;
+    left: 55%;
+    transform: translate(-50%, -50%);
+}
+
+.modal p {
+    color: #4D4D4D;
+    text-align: center;
+    font-family: Pretendard;
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    height: 78px;
+    display: flex;
+    align-items: center;
+}
+
+
+.modal>div {
+    height: 277px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.modal input {
+    height: 52px;
+    padding: 14px 20px;
+    gap: 5px;
+    border-radius: 10px;
+    border: 1px solid #D5D5D5;
+    width: 374px;
+    margin: 0 0 28px 0;
+}
+
+.modal button {
+    width: 823px;
+    color: #2C8FFF;
+    font-family: Pretendard;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    border-top: 1px solid #A2A2A2;
+    height: 87px;
+    background: #FCFCFC;
 }

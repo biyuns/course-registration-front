@@ -7,112 +7,88 @@ import { useLocation } from 'react-router-dom';
 import { authAPI } from '../components/apiClient';
 import ClassCt from '../components/ClassCt';
 
-const dummyLectureList = [
-  {
-    startTime: "2025-12-1 T18:00:00",
-    instructorName: "정지훈",
-    classroomName: "601호",
-    subjectName: "[정규반] 국어",
-    reservationOpenAt: "2025-12-07T00:00:00",
-    reservationCloseAt: "2025-12-09T23:59:59",
-  },
-  {
-    startTime: "2025-12-10T12:00:00",
-    instructorName: "김수정",
-    classroomName: "601호",
-    subjectName: "[정규반] 국어",
-    reservationOpenAt: "2025-12-07T00:00:00",
-    reservationCloseAt: "2025-12-09T23:59:59",
-  },
-  {
-    startTime: "2025-12-12T18:00:00",
-    instructorName: "박한종",
-    classroomName: "601호",
-    subjectName: "[특강] 영어",
-    reservationOpenAt: "2025-12-08T00:00:00",
-    reservationCloseAt: "2025-12-11T23:59:59",
-  },
-  {
-    startTime: "2025-12-11T18:00:00",
-    instructorName: "유지은",
-    classroomName: "601호",
-    subjectName: "[정규반] 영어",
-    reservationOpenAt: "2025-12-07T00:00:00",
-    reservationCloseAt: "2025-12-10T23:59:59",
-  },
-];
+
+
 
 function Home() {
   const { moveclassaply, movetime } = Navigation();
   const location = useLocation();
 
-  const [myClassData, setMyClassData] = useState(null);
+  const [myClassData, setMyClassData] = useState([]);
+  const [classData, setClassData] = useState([]);
   const [error, setError] = useState(null);
+  const [loading, setLoading] = useState(null);
+  const [token, setToken] = useState(null);
 
   const [date, setDate] = useState('');
   const [time, setTime] = useState('');
   const [seatNum, setSeatNum] = useState('');
 
-  // 1) 내 기존 강의 정보 API
-  const fetchMyClassData = async () => {
-    try {
-      setError(null);
-      const res = await authAPI.getMyReservations();
-      const reservationData = res.data[0];
 
-      if (reservationData) {
-        const startTime = reservationData.startTime;
-        const monthDay = startTime.slice(5, 10).replace('-', '/');
-        const hourMinute = startTime.slice(11, 16);
+  const changeDate = (data) => {
+    if (!data || !data.startTime) return;
+    const date1 = data.startTime.slice(5, 10);
+    const date2 = date1.replace('-', '.');
+    setDate(date2);
+    const time1 = data.startTime.slice(11, 16);
+    setTime(time1);
+    const seat = data.seatNumber.slice(5, 7)
+    setSeatNum(seat);
 
-        setMyClassData(reservationData);
-        setDate(monthDay);
-        setTime(hourMinute);
-        setSeatNum(reservationData.seatNumber);
-      } else {
-        setMyClassData(null);
-        setError(404);
-      }
-    } catch (error) {
-      if (error.response) setError(error.response.status);
-      else setError('NETWORK_ERROR');
-      setMyClassData(null);
-    }
-  };
 
-  //   useEffect(() => {
-  //     fetchMyClassData();
-  //   }, []);
+  }
 
-  // 2) 좌석 예매 페이지에서 넘어온 예약 정보가 있으면 그걸 우선 사용
+
+
   useEffect(() => {
-    if (location.state) {
-      const { dateText, title, teacher, classroom, seatNumber } = location.state;
 
-      // "2025-12-1 18:00" → 날짜/시간 분리
-      const [d, t] = dateText.split(' ');
-      const monthDay = d.slice(5).replace('-', '/'); // "12-1" → "12/1"
 
-      setMyClassData({
-        lectureName: title,
-        instructorName: teacher,
-        classroomName: classroom,
-      });
-      setDate(monthDay);
-      setTime(t);
-      setSeatNum(`${seatNumber}번`);
-      setError(null);
+    const fetchMyLectures = async () => {
+      try {
+        const response = await authAPI.getMyReservations();
+        if (response.data && response.data.length > 0) {
+          const firstLecture = response.data[0];
+          setMyClassData(firstLecture);
+          // 중요: 데이터를 받은 직후에 그 데이터를 인자로 넘겨서 실행!
+          changeDate(firstLecture);
+        }
+      } catch (err) {
+        console.error("강의 목록 로딩 실패:", err);
+      }
+    };
+
+    const fetchLectures = async () => {
+      try {
+        setLoading(true);
+        const response = await authAPI.getLectureList();
+        // 서버 응답 구조가 [ { ... }, { ... } ] 형태이므로 바로 저장
+        setClassData(response.data);
+      } catch (err) {
+        console.error("강의 목록 로딩 실패:", err);
+        setError(err.response?.status || 500);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchLectures();
+
+    const atoken = localStorage.getItem('accessToken');
+
+    if (!atoken) {
+      setToken(false);
+    } else {
+      setToken(true);
+      fetchMyLectures();
+      changeDate();
     }
-  }, [location.state]);
+  }, []);
 
-  const isErrorOrNoData = error === 404 || myClassData === null;
-  const NoneClass = isErrorOrNoData ? hom.block : hom.none;
-  const blockClass = isErrorOrNoData ? hom.none : hom.block;
 
-  // 신청하기 카드 클릭 시 (지금은 콘솔만)
-  const handleLectureClick = (lecture) => {
-    console.log('신청하기 클릭:', lecture.subjectName);
-  };
+
+  const NoneClass = token ? hom.block : hom.none;
+  const blockClass = token ? hom.none : hom.block;
+
 
   return (
     <>
@@ -140,16 +116,12 @@ function Home() {
               <div>
                 <div className={hom.gray_ct}>수업명</div>
                 <p>
-                  {myClassData
-                    ? myClassData.lectureName ||
-                    myClassData.subjectName ||
-                    '[정규반] 국어'
-                    : ''}
+                  {myClassData.lectureName}
                 </p>
               </div>
               <div>
                 <div className={hom.gray_ct}>강사</div>
-                <p>{myClassData ? myClassData.instructorName : ''}</p>
+                <p>{myClassData.instructorName}</p>
               </div>
               <button>강의 정보 확인하기</button>
             </div>
@@ -167,16 +139,19 @@ function Home() {
               <div>수강정보</div>
             </div>
             <div className={hom.class_apply_app_ct}>
-              <ClassCt />
-              <ClassCt />
+              {classData.map((lecture) => (
+                <ClassCt
+                  key={lecture.lectureId}
+                  lectureData={lecture}
+                />
+              ))}
             </div>
             <div className={hom.class_apply_web_ct}>
-              {dummyLectureList.map((lecture, index) => (
+              {classData.map((lecture) => (
                 <ClassCtWeb
-                  key={index}
+                  key={lecture.lectureId}
                   lectureData={lecture}
                   btnText="신청하기"
-                  click={() => handleLectureClick(lecture)}
                 />
               ))}
             </div>

@@ -27,10 +27,15 @@ export default function Navigation() {
     const movereservationRegi = () => navigate('/ReservationRegi')
     const movereservationRegiInfo = () => navigate('/ReservationRegiInfo')
 
+    const movemyclassinfo = () => navigate('/myClassInfo')
+    const movechangeparentphone = () => navigate('/parent-password')
+    const movechangepassword = () => navigate('/password')
+
     return {
         movesignup, signup_normal, signupcomplete, loginpg, movehome,
         moveclassaply, movetime, reservationpg, movereservationInfo,
         movereservationRegi, movereservationRegiInfo, termcondition,
+        movemyclassinfo, movechangeparentphone, movechangepassword,
         termallagree, termpersoninf, termmarketing, idfind, pswfind
         , idfind2, pswreseting, pswchangecomplete
     };

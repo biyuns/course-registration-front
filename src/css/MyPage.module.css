@@ -36,7 +36,7 @@
 .profile_section>button {
     display: flex;
     height: 35px;
-    width: 65px;
+    width: 80px;
     padding: 6px 12px;
     flex-direction: column;
     justify-content: center;
@@ -51,6 +51,11 @@
     line-height: normal;
     background: #FCFCFC;
     margin: 19px 20px;
+}
+
+
+.web {
+    display: none !important;
 }
 
 .gray_div {
@@ -77,6 +82,9 @@
 
 .my_classes {
     margin: 25px;
+    display: flex;
+    flex-direction: column;
+    gap: 13px;
 }
 
 .mypage_header>div {
@@ -110,7 +118,48 @@
 }
 
 
+.my_classes_web {
+    display: none;
+}
+
+.detail_section {
+    margin: 4px 19px 0 19px;
+
+}
+
+.detail_section>div {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 14px 0;
+    color: #292929;
+    font-family: "Pretendard Variable";
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+
+}
+
+.detail_section>div:last-of-type {
+    border-top: 1px solid #D9D9D9;
+}
+
+.detail_section>div>button {
+    background-color: #FCFCFC;
+}
+
+
 @media screen and (min-width: 1200px) {
+
+    .web {
+        display: flex !important;
+    }
+
+    .app {
+        display: none !important;
+    }
+
     .mypage_header {
         display: none;
     }

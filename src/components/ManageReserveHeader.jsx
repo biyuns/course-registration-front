@@ -18,12 +18,13 @@ function ManageReserveHeader() {
 
     return (
         <div className={HeadSub.sub_header_reserve}>
-            <div onClick={clickReserve}>예약</div>
+            <div >예약</div>
+            <div>과목명/강사/강의실 등록</div>
+            <div onClick={clickReserve}>회원 관리</div>
             {reserve === true && (
                 <section>
-                    <div onClick={movereservationInfo}>예약자 정보</div>
-                    <div onClick={movereservationRegi}>예약 등록</div>
-                    <div onClick={movereservationRegiInfo}>예약등록 정보</div>
+                    <div onClick={movereservationInfo}>회원 정보</div>
+                    <div onClick={movereservationRegi}>가입자 정보</div>
                 </section>
             )}
 

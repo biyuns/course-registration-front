@@ -4,7 +4,6 @@
     top: 0;
     background: #FCFCFC;
     width: 100%;
-    margin-bottom: 10px;
 
     justify-content: center;
     align-items: center;
@@ -40,17 +39,27 @@
 
 }
 
+
+
 .infos>div>div>button {
+    color: #4D4D4D;
+    font-family: Pretendard;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    background-color: #FCFCFC;
     display: flex;
     height: 37px;
-
     justify-content: center;
     align-items: center;
     gap: 10px;
     align-self: stretch;
     border-radius: 10px;
     border: 1px solid #4D4D4D;
+    width: 140px;
 }
+
 
 .black {
 
@@ -61,10 +70,15 @@
 
 }
 
-.infos>div>p,
-.infos>div>div {
+.infos>div>p {
     display: flex;
     justify-content: center;
+    align-items: center;
+}
+
+.infos>div>div {
+    display: flex;
+    justify-content: flex-end;
     align-items: center;
 }
 
@@ -87,6 +101,10 @@
 
 }
 
+.info_1_5 {
+    flex-basis: 15%;
+}
+
 .info_1_7 {
     flex-basis: 17%;
 }
@@ -95,9 +113,25 @@
     flex-basis: 19%;
 }
 
-.info_2_5 {
-    flex-basis: 25%;
+.info_2 {
+    flex-basis: 20%;
 
+}
+
+
+.info_2_1 {
+    flex-basis: 21%;
+
+}
+
+.info_1_4 {
+    flex-basis: 14%;
+}
+
+.info_1_btn {
+    flex-basis: 10%;
+    justify-content: center !important;
+    align-items: center !important;
 }
 
 .sub_title {
@@ -109,7 +143,7 @@
 .sub_title>p {
     color: #01AEB0;
     font-family: Pretendard;
-    font-size: 20px;
+    font-size: 32px;
     font-style: normal;
     font-weight: 600;
     line-height: normal;
@@ -121,13 +155,23 @@
     border-radius: 10px;
     border: 1px solid #A2A2A2;
     background: #FFF;
-    width: 200px;
-    height: 34px;
+    width: 300px;
+    height: 55px;
 }
 
 .search_div>input {
     padding-left: 24px;
     width: 150px;
+
+}
+
+.search_div>button {
+    margin-left: auto;
+    width: 70px;
+    height: 55px;
+    border: 1px solid #A2A2A2;
+    border-radius: 0 10px 10px 0;
+    background: #FFF;
 }
 
 .reservation_check_ct>div>button {

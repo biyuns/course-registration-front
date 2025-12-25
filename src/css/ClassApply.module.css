@@ -51,6 +51,7 @@
     width: 100vw;
     overflow-x: scroll;
     white-space: nowrap;
+    padding-right: 30px;
 
 
 }
