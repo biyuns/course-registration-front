@@ -2,13 +2,16 @@ import SignupTop from "../components/SignupTop";
 import Termremovebtn from '../img/termremove.svg'
 import '../css/TermAll.css'
 import Navigation from "../components/Navigate";
+import Header from "../components/Header";
 
 export default function TermAllAgree() {
     const { termcondition } = Navigation();
     return (
-        <div>
+        <div className="term-all-scroll-ct">
             <SignupTop title='약관동의' />
+            <Header />
 
+            <p className="term-all-pharse"> 시대원 학원 회원가입</p>
             <div className="term-all-ct">
                 <p className="term-all-remove-img" onClick={termcondition}> <img src={Termremovebtn} alt="x표시 이미지" /></p>
 

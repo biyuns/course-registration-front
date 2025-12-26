@@ -28,7 +28,7 @@ import TermMarketing from './pages/TermMarketing.jsx';
 import PasswordFind from './pages/PasswordFind.jsx';
 import IdFind from './pages/IdFind.jsx';
 import IdFind2 from './pages/IdFind2.jsx';
-import PswRessting from './css/PswResetting.jsx';
+import PswRessting from './pages/PswResetting.jsx';
 import PswChangeComplete from './pages/PswChangeComplete.jsx';
 
 

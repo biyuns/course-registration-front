@@ -26,5 +26,3 @@ function IdPswFindTop({ step = 1 }) {
 }
 
 export default IdPswFindTop
-
-// css는 Login.css에 작성했음

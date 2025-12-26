@@ -2,12 +2,16 @@ import IdPswFindTop from "../components/IdPswFindTop";
 import CompleteCircle from '../img/complete-round.svg';
 import CompleteCheck from '../img/complete-check.svg'
 import Navigation from "../components/Navigate";
+import Header from "../components/Header";
+import IdPswFindDesktop from "../components/IdPswFindDesktop";
 
 export default function PswChangeComplete() {
     const { loginpg } = Navigation()
     return (
-        <div className="media-ct">
+        <div className="term-all-scroll-ct">
             <IdPswFindTop />
+            <Header />
+            <IdPswFindDesktop step={2} />
             <section className="signup-complete-ct">
 
                 <div className="pswchange-complete-check-img-ct">

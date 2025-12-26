@@ -2,7 +2,6 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    overflow-y: auto;
     margin: 0 auto;
     width: 100%;
 }
@@ -29,7 +28,7 @@
 .pswfind-email-ct {
     display: flex;
     flex-direction: column;
-    width: 85%;
+    width: 70%;
     gap: 10px;
     margin-left: 30px;
     margin: 0 auto;
@@ -90,7 +89,8 @@
 }
 
 .ls-input::placeholder,
-.ls-input-email::placeholder {
+.ls-input-email::placeholder,
+.pswfind-input-email::placeholder {
     color: #D5D5D5;
     font-family: "Pretendard Variable";
     font-size: 15px;
@@ -118,13 +118,11 @@
     line-height: normal;
 }
 
-@media (min-width:1281px) {
+@media (min-width:1024px) {
 
     /* ID/PW 회원가입 전체 컨테이너 */
     .ls-ct {
-        overflow-y: auto;
-        width: 50%;
-        height: calc(100vh - 197px);
+        width: 100%;
     }
 
     /* 시대원 학원 회원가입 문구 설정 */
@@ -141,7 +139,7 @@
 
     /* 회원가입 정보 입력 전체 컨테이너 */
     .ls-info-ct {
-        width: 70%;
+        width: 100%;
         align-items: center;
         justify-content: center;
         gap: 30px;
@@ -160,8 +158,8 @@
     }
 
     /* 모든 정보 입력창 설정(이메일 주소 제외) */
-    .ls-input {
-        height: 66px;
+    .ls-input, .pswfind-input-email, .ls-input-email {
+        height: 50px;
     }
 
     /* 이메일 주소 컨테이너 *
@@ -169,7 +167,6 @@
     /* 이메일 입력창, 이메일 select 창 설정 */
     .ls-input-email {
         width: 48%;
-        height: 66px;
     }
 
     /* 아이디, 비밀번호, 전화번호 아래 서브 안내 메시지 설정 */
@@ -194,34 +191,30 @@
     }
 
     .ls-input::placeholder,
-    .ls-input-email::placeholder {
-        font-size: 20px;
+    .ls-input-email::placeholder
+    ,.pswfind-input-email::placeholder {
+        font-size: 15px;
     }
 }
 
-@media (min-width : 1440px) and (max-width : 1450px) {
-    .ls-info-ct {
-        width: 90%;
-    }
+.ls-input-error {
+  border: 1px solid #ff4d4f !important;
+}
 
-    .ls-title {
-        margin-top: 50px;
-    }
+.ls-error-text {
+  color: #ff4d4f;
+}
 
-    .ls-input,
-    .ls-input-email {
-        height: 40px;
-        padding: 20px 14px;
-    }
+.ls-sign-btn {
+  background: #d9d9d9;
+}
 
-    .ls-input::placeholder,
-    .ls-input-email::placeholder {
-        font-size: 15px;
-    }
+/* 활성(청록색) */
+.ls-sign-btn {
+  background: #d9d9d9;
+}
 
-    .ls-sign-btn {
-        height: 50px;
-        font-size: 14px;
-    }
-
+/* 모든 조건 만족 시 적용될 클래스 */
+.ls-sign-btn-active {
+  background: #01aeb0;
 }
