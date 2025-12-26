@@ -51,7 +51,8 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 59px 25px 0px 25px;
+  margin : 0 auto;
+  margin-top:59px;
   gap: 20px;
 }
 
@@ -70,7 +71,7 @@
 /* 아이디, 비밀번호 입력창 */
 .id-input,
 .password-input {
-  width: 100%;
+  width: 90%;
   height: 3rem;
 
   padding: 14px 20px;
@@ -87,7 +88,7 @@
 
 /* 로그인 버튼 */
 .login-btn {
-  width: 100%;
+  width: 90%;
   text-align: center;
   border-radius: 10px;
   background: #01AEB0;
@@ -114,7 +115,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 70%;
+  width: 250px;
 }
 
 /* 아이디 찾기 비밀번호 찾기 회원가입 사이 | 설정 */
@@ -193,6 +194,19 @@
   margin-bottom: 32px;
   margin-right: 27px;
   margin-left: 27px;
+
+}
+
+.login-desktop-pharse {
+  display: none;
+}
+
+.top-header-style {
+  display: none;
+}
+
+.signup-top-style {
+  display: block;
 }
 
 @media (min-height:700px) {
@@ -218,7 +232,7 @@
 .login-mobile-line {
   width: 100%;
   height: 3px;
-  background : #E1E0E0
+  background: #E1E0E0
 }
 
 .login-mobile-line.step-1 {
@@ -247,19 +261,74 @@
 .login-mobile-line.step-3 {
   width: 100%;
   height: 3px;
-  background: linear-gradient(to right, 
-    #E1E0E0          66.6%,
-         /* 부드럽게 시작 전 */
-    /* rgba(1,174,176,0.3) 66.7%,  약간 투명 청록색 */
-    #01AEB0          66.7%,     /* 완전 청록색 시작 */
-    #01AEB0          72%,     /* 완전 청록색 시작 */
-    #01AEB0          95%,     /* 완전 청록색 끝 */
-    /* rgba(1,174,176,0.3) 97%, */
-    #01AEB0          100%     /* 부드럽게 끝 */
-  );
+  background: linear-gradient(to right,
+      #E1E0E0 66.6%,
+      /* 부드럽게 시작 전 */
+      /* rgba(1,174,176,0.3) 66.7%,  약간 투명 청록색 */
+      #01AEB0 66.7%,
+      /* 완전 청록색 시작 */
+      #01AEB0 72%,
+      /* 완전 청록색 시작 */
+      #01AEB0 95%,
+      /* 완전 청록색 끝 */
+      /* rgba(1,174,176,0.3) 97%, */
+      #01AEB0 100%
+      /* 부드럽게 끝 */
+    );
 }
 
-@media (min-width : 1281px) {
+@media (min-width : 481px) and (max-width : 699px) {
+
+  .id-input,
+  .login-btn,
+  .password-input {
+    width: 60%;
+  }
+
+  .sns-line {
+    width: 30%;
+  }
+
+  .sns-title {
+    font-size: 10px;
+  }
+
+  .sns-login-inf {
+    width: 60%;
+  }
+}
+
+@media (min-width : 700px) and (max-width : 1023px) {
+  .login-title-font {
+    font-size: 24px;
+  }
+
+  .id-input,
+  .login-btn,
+  .password-input {
+    width: 60%;
+  }
+
+  .sns-line {
+    width: 30%;
+  }
+
+  .sns-title {
+    font-size: 14px;
+  }
+
+  .sns-login-inf {
+    width: 60%;
+  }
+}
+
+@media (min-width : 1024px) {
+  .top-header-ct {
+    align-items: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+
   .mobile-ct {
     display: none;
   }
@@ -270,10 +339,12 @@
 
   .academy-logo {
     margin-left: 0px;
+    margin-top: 0px;
+    width: 70%;
   }
 
   .academy-logo-desktop {
-    margin-left: 112px;
+    margin-left: 40px;
   }
 
   .login-ct {
@@ -289,29 +360,55 @@
     margin-top: 52px;
   }
 
+  .login-logout-ct {
+    display: flex;
+    gap: 51px;
+    margin-right: 63px;
+  }
+
   .logout {
     display: block;
+    margin: 0px;
   }
 
   .mobile-profile-img {
     display: none;
   }
+
+
+  .login-mobile-logoimg {
+    display: none;
+  }
+
+  .login-desktop-pharse {
+    display: block;
+
+  }
+
+  .sns-login-inf {
+    display: none;
+  }
+
+
+  .id-input,
+  .password-input,
+  .login-btn {
+    width: 70%;
+  }
+
+  .signup-top-style {
+    display: none;
+  }
+
+  .top-header-style {
+    display: block;
+  }
+
 }
 
 
-@media (min-width : 1440px) and (max-width : 1450px) {
-  .academy-logo-desktop {
-    margin: 0px 0px 0px 30px;
-  }
-
-  .academy-logo,
-  .logout {
-    margin-top: 30px;
-  }
-
-  .logout {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+@media (min-height:720px) and (max-height:800px) {
+  .login-ct {
+    margin-top: 70px;
   }
 }

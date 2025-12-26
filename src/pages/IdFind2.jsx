@@ -1,12 +1,16 @@
+import Header from "../components/Header";
+import IdPswFindDesktop from "../components/IdPswFindDesktop";
 import IdPswFindTop from "../components/IdPswFindTop";
 import Navigation from "../components/Navigate";
 import '../css/IdPswFind.css'
 
 export default function IdFind2() {
-    const { loginpg, pswfind} = Navigation();
+    const { loginpg, pswfind } = Navigation();
     return (
-        <div>
+        <div className="term-all-scroll-ct">
             <IdPswFindTop step={1} />
+            <Header />
+            <IdPswFindDesktop step={1} />
             <p className="idfind2-coment"> 휴대전화번호 정보와 일치하는 아이디입니다.</p>
 
             <section className="user-find-inf">

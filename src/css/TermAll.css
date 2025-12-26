@@ -64,3 +64,98 @@
     height: 41px;
     margin-bottom: 32px;
 }
+
+.term-all-pharse {
+    display: none;
+}
+
+.agree-check-btn.checked {
+    background: #2C8FFF !important;
+    border-color: #2C8FFF !important;
+}
+
+.agree-check-btn.checked::after {
+    content: '✓';
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    display: block;
+    text-align: center;
+}
+
+@media(min-width : 1024px) {
+    .term-all-scroll-ct {
+        overflow-y: auto;
+        height: 100vh;
+    }
+
+    .term-all-ct {
+        width: 50%;
+        margin-bottom: 88px;
+    }
+
+    .term-all-pharse {
+        display: block;
+        text-align: center;
+        margin: 0 auto;
+        margin-bottom: 37px;
+        margin-top: 102px;
+        color: #424C5E;
+        font-family: "Pretendard Variable";
+        font-size: 40px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: normal;
+    }
+
+    .term-all-ct>p:nth-child(2) {
+        font-size: 32px;
+        margin-top: 12px;
+    }
+
+    .term-all-content-ct {
+        margin-bottom: 66px;
+    }
+
+    .termall-close-btn {
+        display: none;
+    }
+}
+
+@media (min-height:700px) and (max-height:800px) {
+    .term-all-pharse {
+        margin-top: 60px;
+    }
+}
+
+@media (min-width:1441px) {
+    .term-all-pharse {
+        font-size: 50px;
+    }
+
+    .term-all-content-ct>p {
+        color: #4D4D4D;
+        font-family: "Pretendard Variable";
+        font-size: 17px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+    }
+
+    .term-all-content-ct>p>span {
+        color: #4D4D4D;
+        font-family: "Pretendard Variable";
+        font-size: 17px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: normal;
+    }
+
+    .termall-close-btn {
+        display: none;
+    }
+
+    .term-all-content-ct {
+        margin-bottom: 88px;
+    }
+}

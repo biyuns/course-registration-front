@@ -6,7 +6,7 @@ export default function Header2() {
     return (
         <div className='top-header-style'>
             <header className='top-header-ct'>
-                    <img className="academy-logo-desktop" media="(min-width: 1281px)" src={AcademyLogoDesktop} />
+                    <img className="academy-logo-desktop" media="(min-width: 1024px)" src={AcademyLogoDesktop} />
                 <p className='desktop-ct logout'> 로그아웃 </p>
                 </header>
             <div className="top-line desktop-ct"> </div>

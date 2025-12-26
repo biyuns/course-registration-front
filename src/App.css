@@ -6,13 +6,13 @@
 
 .media-ct {
     min-width: 320px;
-    max-width: 480px;
+    max-width: 1024px;
     max-height: 100vh;
 }
 
-@media (min-width : 1281px) {
+@media (min-width : 1024px) {
     .media-ct {
-        min-width: 1281px;
+        min-width: 1024px;
         max-width: 2560px;
         height: 100vh;
         /* overflow: hidden; */

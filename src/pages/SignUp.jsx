@@ -5,6 +5,7 @@ import NaverLoginimg from '../img/naver-login-log.png';
 import SignupTop from '../components/SignupTop.jsx';
 import Logoimg from '../img/login-academy-logo.svg'
 import Header from "../components/Header.jsx";
+import SignupTermDesktop from "../components/SignupTermDesktop.jsx";
 
 export default function SignUp() {
     const { termcondition } = Navigation();

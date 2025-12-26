@@ -5,84 +5,88 @@ import Navigation from '../components/Navigate.jsx';
 import { useState } from 'react';
 import { authAPI } from '../components/apiClient.jsx';
 import SignupTop from '../components/SignupTop.jsx';
-import Logoimg from '../img/login-academy-logo.svg' 
+import Logoimg from '../img/login-academy-logo.svg';
 import Header from '../components/Header.jsx';
 
 export default function Login() {
-  const { movesignup, movehome, idfind, pswfind } = Navigation();
+  const { movesignup, idfind, pswfind } = Navigation();
 
-  const [formData, setFormData] = useState({
-    username: '',
-    password: '',
-  });
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState('');
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData((prev) => ({ ...prev, [name]: value }));
-  };
+  // 입력 값 상태
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
 
-  const handleLogin = async (e) => {
+  // 로그인 submit 핸들러
+  const handleSubmit = async (e) => {
     e.preventDefault();
+    setLoading(true);
+    setMessage('');
 
-    // ⭐ 임시 테스트용: API 호출 막고 바로 홈으로 이동
-    movehome();
-    return;
-
-    /*
-    // 실제 로그인 로직 (나중에 다시 사용할 코드)
     try {
-      setLoading(true);
-      setMessage('');
+      const response = await authAPI.login({
+        username,
+        password,
+      }); // POST /login [web:123][web:133]
 
-      const res = await authAPI.login(formData);
-      const { accessToken, refreshToken } = res.data;
+      const { accessToken, refreshToken } = response.data;
 
-      console.log('accessToken:', accessToken);
-      console.log('refreshToken:', refreshToken);
-
+      // 토큰 저장
       localStorage.setItem('accessToken', accessToken);
       localStorage.setItem('refreshToken', refreshToken);
 
-      setMessage('로그인 성공!');
-      movehome(); // 홈으로 이동
+      setMessage('로그인에 성공했습니다.');
+      // 필요하면 여기서 페이지 이동 등 추가
+      // 예: window.location.href = '/';
     } catch (error) {
       console.error(error);
-      setMessage(
-        error.response?.data?.message || '로그인 실패'
-      );
+      const msg =
+        error.response?.data?.message ||
+        '아이디 또는 비밀번호를 다시 확인해 주세요.';
+      setMessage(msg);
     } finally {
       setLoading(false);
     }
-    */
+  };
+
+  // 소셜 로그인 (백엔드로 바로 이동)
+  const handleGoogleLogin = () => {
+    window.location.href = 'https://13.125.89.234.nip.io/oauth2/authorization/google';
+  };
+
+  const handleNaverLogin = () => {
+    window.location.href = 'https://13.125.89.234.nip.io/oauth2/authorization/naver';
   };
 
   return (
-    <div className='media-ct'>
-      <SignupTop title="로그인"/>
+    <div className="media-ct">
+      <SignupTop title="로그인" />
       <Header />
-        <section className='login-ct'>
-        <p> <img src={Logoimg} /> </p>
+      <section className="login-ct">
+        <p className="login-mobile-logoimg">
+          <img src={Logoimg} alt="로고" />
+        </p>
+        <p className="login-desktop-pharse"> 로그인 </p>
 
-        <form className="login-form-ct" onSubmit={handleLogin}>
+        <form className="login-form-ct" onSubmit={handleSubmit}>
           <input
             type="text"
             name="username"
-            className='id-input'
-            placeholder='아이디'
-            value={formData.username}
-            onChange={handleChange}
+            className="id-input"
+            placeholder="아이디"
             required
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
           />
           <input
             type="password"
             name="password"
-            className='password-input'
-            placeholder='비밀번호'
-            value={formData.password}
-            onChange={handleChange}
+            className="password-input"
+            placeholder="비밀번호"
             required
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
           />
           {message && <p className="login-message">{message}</p>}
           <button
@@ -94,27 +98,41 @@ export default function Login() {
           </button>
         </form>
 
-        <div className='find-singup-ct'>
-          <p className='id-find' onClick={idfind}> 아이디 찾기 </p>
+        <div className="find-singup-ct">
+          <p className="id-find" onClick={idfind}>
+            아이디 찾기
+          </p>
           <div> | </div>
-          <p className='password-find' onClick={pswfind}> 비밀번호 찾기 </p>
+          <p className="password-find" onClick={pswfind}>
+            비밀번호 찾기
+          </p>
           <div> | </div>
-          <p className='signup' onClick={movesignup}> 회원가입 </p>
+          <p className="signup" onClick={movesignup}>
+            회원가입
+          </p>
         </div>
 
-        <div className='sns-login-inf'> 
-          <p className='sns-line'></p>
-          <p className='sns-title'>SNS 계정으로 로그인</p>
-          <p className='sns-line'></p>
-
+        <div className="sns-login-inf">
+          <p className="sns-line"></p>
+          <p className="sns-title">SNS 계정으로 로그인</p>
+          <p className="sns-line"></p>
         </div>
 
-        <div className='google-naver-login'>
-          <img className="google-login-logo" src={GoogleLoginimg} alt="구글 로그인 로고" />
-          <img className="naver-login-logo" src={NaverLoginimg} alt="네이버 로그인 로고" />
+        <div className="google-naver-login">
+          <img
+            className="google-login-logo"
+            src={GoogleLoginimg}
+            alt="구글 로그인 로고"
+            onClick={handleGoogleLogin}
+          />
+          <img
+            className="naver-login-logo"
+            src={NaverLoginimg}
+            alt="네이버 로그인 로고"
+            onClick={handleNaverLogin}
+          />
         </div>
       </section>
     </div>
   );
 }
-    

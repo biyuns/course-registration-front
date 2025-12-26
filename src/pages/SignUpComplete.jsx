@@ -7,6 +7,7 @@ import Navigation from "../components/Navigate";
 import { useEffect, useState } from "react";
 import { authAPI } from "../components/apiClient";
 import SignupTop2 from "../components/SignupTop2";
+import SignupTermDesktop from "../components/SignupTermDesktop";
 
 export default function SignUpComplete() {
     const { loginpg } = Navigation()
@@ -28,9 +29,10 @@ export default function SignUpComplete() {
         fetchUserInfo();
     }, []);
     return (
-        <div className="media-ct">
+        <div className="media-ct term-all-scroll-ct">
             <Header />
             <SignupTop2 step={3}/>
+            <SignupTermDesktop step={3} />
             <section className="signup-complete-ct">
                 <p className="complete-title"> 시대원학원 회원가입 </p>
 

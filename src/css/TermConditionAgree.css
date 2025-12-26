@@ -4,7 +4,9 @@
     flex-direction: column;
     gap: 18px;
     align-items: start;
-    margin: 40px 35px;
+    margin: 0 auto;
+    margin-top: 40px;
+    margin-bottom: 40px;
 }
 
 .agree-divide-line {
@@ -58,7 +60,8 @@
     padding: 25px 25px;
     gap: 10px;
     align-items: flex-start;
-    margin: 0px 35px 0px 35px
+    margin: 0 auto;
+    width: 80%;
 }
 
 .agree-check-comment {
@@ -112,4 +115,150 @@
     line-height: normal;
 
     text-align: center;
+}
+
+.termdesktop {
+    display: none
+}
+
+.term-ct-desktop {
+    display: none;
+}
+
+.term-desktop-pharse {
+    display: none;
+}
+
+@media (min-width : 1024px) {
+    .top-root {
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+    }
+
+    html,
+    body {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+        overflow: hidden;
+        /* 여기서 스크롤 제거 */
+    }
+
+    .signup-term-scroll-ct {
+        overflow-y: auto;
+        max-height: 100vh;
+    }
+
+    .termmobile {
+        display: none;
+    }
+
+    .termdesktop {
+        display: block
+    }
+
+    .term-desktop-pharse {
+        color: #424C5E;
+        font-family: "Pretendard Variable";
+        font-size: 30px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: normal;
+        text-align: center;
+        margin-top: 102px;
+        display: block;
+    }
+
+    .term-ct-desktop {
+        display: flex;
+        justify-content: center;
+    }
+
+    .term-step1-ct,
+    .term-step2-ct,
+    .term-step3-ct {
+        display: flex;
+        flex-direction: column;
+        gap: 2px;
+        width: 25%;
+        height: 96px;
+        justify-content: center;
+        margin-top: 41px;
+        margin-bottom: 84px;
+        background: #ECECEC;
+    }
+
+    .term-step1-ct>p:nth-child(1),
+    .term-step2-ct>p:nth-child(1),
+    .term-step3-ct>p:nth-child(1) {
+        color: #A2A2A2;
+        text-align: center;
+        font-family: "Pretendard Variable";
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: normal;
+    }
+
+    .term-step1-ct>p:nth-child(2),
+    .term-step2-ct>p:nth-child(2),
+    .term-step3-ct>p:nth-child(2) {
+        color: #A2A2A2;
+        text-align: center;
+        font-family: "Pretendard Variable";
+        font-size: 24px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: normal;
+    }
+
+    .agree-check-ct {
+        width: 50%;
+        margin: 0 auto;
+        margin-bottom: 44px;
+    }
+
+    .agree-list-ct {
+        width: 50%;
+        margin: 0 auto;
+    }
+
+    .agree-next-btn {
+        width: 30%;
+        position: relative;
+        display: block;
+        margin: 0 auto;
+        margin-top: 95px;
+        margin-bottom: 40px;
+    }
+
+    .agree-essential-ct>p {
+        color: #4D4D4D;
+        font-family: "Pretendard Variable";
+        font-size: 17px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: normal;
+    }
+
+    .agree-essential-ct>p>span {
+        font-size: 17px;
+    }
+
+    .agree-check-comment {
+        font-size: 20px;
+    }
+
+    .agree-check-content {
+        font-size: 13px;
+    }
+}
+
+
+
+@media (min-width : 320px) and (max-width : 380px) {
+    .agree-check-comment {
+        font-size: 14px;
+    }
 }

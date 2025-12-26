@@ -4,23 +4,28 @@ import '../css/IdPswFind.css'
 import inputvisible from '../img/inputeye.svg'
 import inputremove from '../img/inputx.svg'
 import Navigation from '../components/Navigate';
+import Header from '../components/Header';
+import IdPswFindDesktop from '../components/IdPswFindDesktop';
 
 export default function PswRessting() {
     const { pswchangecomplete } = Navigation()
 
-    // 새 비밀번호
     const [newPw, setNewPw] = useState('');
     const [newPwVisible, setNewPwVisible] = useState(false);
     const [newPwFocused, setNewPwFocused] = useState(false);
 
-    // 새 비밀번호 재확인
     const [newPw2, setNewPw2] = useState('');
     const [newPw2Visible, setNewPw2Visible] = useState(false);
     const [newPw2Focused, setNewPw2Focused] = useState(false);
 
+    const isMatch = newPw !== '' && newPw === newPw2;
+    const hasInputStarted = newPw !== '' || newPw2 !== '';
+
     return (
-        <div>
+        <div className="term-all-scroll-ct">
             <IdPswFindTop step={2} />
+            <Header />
+            <IdPswFindDesktop step={2} />
             <p className="psw-resetting-ins"> 비밀번호 재설정</p>
 
             <form className="new-psw-total-ct">
@@ -38,29 +43,26 @@ export default function PswRessting() {
                             onBlur={() => setNewPwFocused(false)}
                         />
 
-                        {/* 포커스가 있을 때: X 아이콘 (이미지로 비워둠) */}
-                        {newPwFocused ? (
+                        {/* 값이 있을 때만 X 버튼 (inputremove) 표시 */}
+                        {newPw !== '' ? (
                             <button
                                 type="button"
                                 className="pw-icon-btn"
-                                onClick={() => setNewPw('')}
+                                onClick={() => {
+                                    setNewPw('');           // 값 완전 삭제
+                                    setNewPwVisible(false);  // visible 초기화
+                                }}
                             >
-                                <img
-                                    src={inputremove}
-                                    alt="clear password"
-                                />
+                                <img src={inputremove} alt="clear password" />
                             </button>
                         ) : (
-                            // 포커스가 없을 때: 눈 아이콘 (이미지로 비워둠)
+                            /* 값 없을 때만 눈 버튼 (inputvisible) 표시 */
                             <button
                                 type="button"
                                 className="pw-icon-btn"
                                 onClick={() => setNewPwVisible(v => !v)}
                             >
-                                <img
-                                    src={inputvisible}
-                                    alt="toggle password visibility"
-                                />
+                                <img src={inputvisible} alt="toggle password visibility" />
                             </button>
                         )}
                     </div>
@@ -82,27 +84,26 @@ export default function PswRessting() {
                             onBlur={() => setNewPw2Focused(false)}
                         />
 
-                        {newPw2Focused ? (
+                        {/* 값이 있을 때만 X 버튼 (inputremove) 표시 */}
+                        {newPw2 !== '' ? (
                             <button
                                 type="button"
                                 className="pw-icon-btn"
-                                onClick={() => setNewPw2('')}
+                                onClick={() => {
+                                    setNewPw2('');           // 값 완전 삭제
+                                    setNewPw2Visible(false); // visible 초기화
+                                }}
                             >
-                                <img
-                                    src={inputremove}
-                                    alt="clear password"
-                                />
+                                <img src={inputremove} alt="clear password" />
                             </button>
                         ) : (
+                            /* 값 없을 때만 눈 버튼 (inputvisible) 표시 */
                             <button
                                 type="button"
                                 className="pw-icon-btn"
                                 onClick={() => setNewPw2Visible(v => !v)}
                             >
-                                <img
-                                    src={inputvisible}
-                                    alt="toggle password visibility"
-                                />
+                                <img src={inputvisible} alt="toggle password visibility" />
                             </button>
                         )}
                     </div>
@@ -111,7 +112,25 @@ export default function PswRessting() {
                 </div>
             </form>
 
-            <button className="psw-change-btn" onClick={pswchangecomplete}> 변경하기 </button>
+            {hasInputStarted && !isMatch ? (
+                <p className='newpassword-match-pharse'>
+                    *정보를 다시 확인하여 주시기 바랍니다.
+                </p>
+            ) : null}
+
+            <button
+                className={`psw-change-btn ${isMatch ? 'psw-change-btn-active' : ''}`}
+                onClick={pswchangecomplete}
+                disabled={!isMatch}
+            >
+                변경하기
+            </button>
+
+            {hasInputStarted && !isMatch ? (
+                <p className='newpassword-match-pharse2'>
+                    *정보를 다시 확인하여 주시기 바랍니다.
+                </p>
+            ) : null}
         </div>
     );
 }
