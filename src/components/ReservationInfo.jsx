@@ -1,7 +1,19 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import rsvInfo from "../css/RsvInfo.module.css"
+import TwoBtnModal from './TwoBtnModal';
+import { authAPI } from './apiClient';
 
 function ReservationInfo({ reservationData }) {
+
+    const [isModal, setIsModal] = useState(false);
+
+    const clickModal = () => {
+        setIsModal(true)
+    }
+
+    const closeModal = () => {
+        setIsModal(false);
+    }
 
     const {
         reservationId,
@@ -20,6 +32,18 @@ function ReservationInfo({ reservationData }) {
     const reservationAt2 = reservationAt1.replace('T', ' ');
     const reservationAt = reservationAt2.slice(2, 16);
 
+
+    const deleteRsvUser = async () => {
+        try {
+            const id = reservationId
+
+            await authAPI.managerLectureUserDelete(id);
+            closeModal();
+        } catch (err) {
+            console.error("취소 실패:", err)
+        }
+    }
+
     return (
         <div className={rsvInfo.infos}>
             <div>
@@ -33,9 +57,12 @@ function ReservationInfo({ reservationData }) {
                 </div>
 
                 <div className={rsvInfo.info_1_4}>
-                    <button>예약 취소</button>
+                    <button onClick={clickModal}>예약 취소</button>
                 </div>
             </div>
+            {isModal === true && (
+                <TwoBtnModal text={`${nickname} 님 예약을 취소하시겠습니까?`} btn1T="취소하기" btn2T="뒤로가기" btn1E={deleteRsvUser} btn2E={closeModal} />
+            )}
         </div>
     )
 }

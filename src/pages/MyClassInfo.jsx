@@ -44,7 +44,7 @@ function MyClassInfo() {
 
     const deleteSeat = async () => {
         try {
-            const id = classObj.reservationId;
+            const id = reservationId;
 
             await authAPI.deleteReservation(id);
             setIsDelete(true);

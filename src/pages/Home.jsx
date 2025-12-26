@@ -53,7 +53,7 @@ function Home() {
           changeDate(firstLecture);
         }
       } catch (err) {
-        console.error("강의 목록 로딩 실패:", err);
+        console.error("내 예약 로딩 실패:", err);
       }
     };
 

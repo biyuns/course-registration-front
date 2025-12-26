@@ -102,7 +102,7 @@ function ClassInfoRegi() {
                             value={seat}
                             onChange={(e) => setSeat(e.target.value)} />
                     </div>
-                    <button>등록하기</button>
+                    <button onClick={handleclassroom}>등록하기</button>
                 </div>
             </section>
             {

@@ -12,6 +12,7 @@ function ChangeInfo() {
     const [checkPass, setCheckPass] = useState(true);
     const [myInfo, setMyInfo] = useState({})
     const [onModal, setOnModal] = useState(false)
+    const [onPassModal, setOnPassModal] = useState(false);
 
     const [name, setName] = useState("");
     const [num, setNum] = useState("");
@@ -71,7 +72,7 @@ function ChangeInfo() {
 
         if (newPass) {
             if (newPass !== cNewPass) {
-                alert("새 비밀번호와 확인 비밀번호가 일치하지 않습니다.");
+                setOnPassModal(true);
                 return;
             }
             requestData.password = newPass;
@@ -201,7 +202,11 @@ function ChangeInfo() {
                     <button>
                         이전
                     </button>
-                    <button onClick={handleChangeInfo}>
+                    <button onClick={() => {
+                        handleChangePassword()
+                        handleChangeInfo()
+
+                    }}>
                         변경하기
                     </button>
                 </section>
@@ -235,6 +240,12 @@ function ChangeInfo() {
                     <Modal text='변경이 완료되었습니다.' setOnModal={setOnModal} />
                 )
             }
+            {
+                onPassModal === true && (
+                    <Modal text='정보를 다시 한번 확인해 주세요.' setOnModal={setOnPassModal} />
+                )
+            }
+
 
 
         </>

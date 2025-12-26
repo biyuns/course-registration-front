@@ -1,9 +1,8 @@
 import Navigation from './Navigate';
 import classC from '../css/ClassCt.module.css';
-import myc from '../css/MyClassInfo.module.css'
 import { authAPI } from '../components/apiClient';
 import { useState } from 'react';
-
+import TwoBtnModal from './TwoBtnModal';
 
 
 function ClassCtWeb2({ reservationData }) {
@@ -67,16 +66,7 @@ function ClassCtWeb2({ reservationData }) {
                 <button onClick={clickModal}>취소하기</button>
             </div>
             {isModal === true && (
-                <section className={myc.modal}>
-                    <div>
-                        <p>취소하시겠습니까?<br />취소 후엔 수업을 다시 예약해야 합니다.</p>
-                        <div>
-                            <button onClick={deleteSeat}>취소하기</button>
-                            <button onClick={closeModal}>뒤로가기</button>
-                        </div>
-                    </div>
-                </section>
-
+                <TwoBtnModal text={"취소하시겠습니까?\n취소 후엔 수업을 다시 예약해야 합니다."} btn1T="취소하기" btn2T="뒤로가기" btn1E={deleteSeat} btn2E={closeModal} />
             )}
         </div>
     );

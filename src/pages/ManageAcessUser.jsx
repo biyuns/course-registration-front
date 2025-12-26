@@ -1,12 +1,11 @@
 import Header from "../components/Header";
 import rsvInfo from "../css/RsvInfo.module.css"
 import UserInfo from "../components/UserInfo";
-import ClassCtWeb from "../components/ClassCtWeb";
-import ManageHeaderSub from "../components/ManageHeaderSub";
-import rsvRegiInfo from "../css/RsvRegiInfo.module.css"
+import search from '../img/search.svg'
 import { useState } from "react";
 import ManageReserveHeader from "../components/ManageReserveHeader";
-
+import { useEffect } from "react";
+import { authAPI } from "../components/apiClient";
 
 
 function ManageAcessUser() {
@@ -25,6 +24,20 @@ function ManageAcessUser() {
     const [userAcessInfoList, setUserInfo] = useState(userAcessInfo)
     const btn = true;
 
+    useEffect(() => {
+        const fetchAcessUserInfo = async () => {
+            try {
+                const response = await authAPI.managerAcessUserList();
+                setUserInfo(response.data.content)
+            } catch (err) {
+                console.error("유저 조회 실패:", err)
+            }
+        }
+
+        fetchAcessUserInfo()
+    }, [])
+
+
 
     return (
         <>
@@ -37,7 +50,7 @@ function ManageAcessUser() {
                     <p>가입자 정보</p>
                     <div className={rsvInfo.search_div}>
                         <input placeholder="예약자 성함" />
-                        <button></button>
+                        <button><img src={search} /></button>
                     </div>
                 </div>
 

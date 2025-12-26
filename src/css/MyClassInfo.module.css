@@ -280,6 +280,10 @@
         left: 55%;
         transform: translate(-50%, -50%);
         position: fixed;
+        display: flex;
+        flex-direction: column;
+        justify-content: end;
+        padding-bottom: 2px;
 
 
     }
@@ -293,15 +297,15 @@
         font-weight: 500;
         line-height: normal;
         margin: 63px 0 52px 0;
+        white-space: pre-wrap;
     }
 
     .modal>div>div {
-
-        height: 80px;
+        height: 78px;
     }
 
     .modal button {
-        height: 80px;
+        height: 78px;
         font-size: 24px;
     }
 }

@@ -8,19 +8,42 @@
 
 }
 
-.calender-div>p {
+.calender-month {
+    display: flex;
+    justify-content: flex-end;
+    padding: 0 200px;
+
+}
+
+.calender-month>button {
+    background-color: #FCFCFC;
+}
+
+
+
+.calender-month>p {
     color: #4D4D4D;
     font-family: Pretendard;
-    font-size: 15px;
+    font-size: 30px;
     font-style: normal;
     font-weight: 700;
     line-height: normal;
     text-align: center;
     padding: 19px 0 21px 0;
+    margin: auto;
 
 }
 
-.calender-div>div {
+.calender-month>button {
+    width: 11px;
+}
+
+.calender-month button:disabled>img,
+.calender-month button.btn-disabled>img {
+    display: none;
+}
+
+.total-date-ct {
     display: grid;
     grid-template-columns: repeat(7, 1fr);
     width: 100%;
