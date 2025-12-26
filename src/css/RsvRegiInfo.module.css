@@ -10,3 +10,31 @@
     box-shadow: none;
     margin-bottom: 8px;
 }
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    gap: 9px;
+
+}
+
+.pagination>button {
+    color: #757575;
+    text-align: center;
+    font-family: Pretendard;
+    font-size: 22px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    background-color: #FCFCFC;
+}
+
+.activePage {
+    color: #01AEB0 !important;
+    text-decoration-line: underline;
+    text-decoration-style: solid;
+    text-decoration-skip-ink: auto;
+    text-decoration-thickness: auto;
+    text-underline-offset: auto;
+    text-underline-position: from-font;
+}

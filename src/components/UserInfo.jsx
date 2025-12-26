@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import rsvInfo from "../css/RsvInfo.module.css"
+import { authAPI } from './apiClient';
 
 function UserInfo({ userInfo, btn }) {
 
@@ -16,6 +17,15 @@ function UserInfo({ userInfo, btn }) {
     const createdAt2 = createdAt1.replace('T', ' ');
     const createdAt = createdAt2.slice(2, 16);
 
+    const fetchAcessUser = async () => {
+        try {
+            const id = userId;
+            await authAPI.managerAcessUser(id)
+        } catch (err) {
+            console.error("회원 승인 실패:", err)
+        }
+    }
+
 
     return (
         <div className={rsvInfo.infos}>
@@ -27,7 +37,7 @@ function UserInfo({ userInfo, btn }) {
                 <p className={rsvInfo.info_2}>{email}</p>
                 <div className={rsvInfo.info_1_btn}>
                     {btn === true && (
-                        <button>승인하기</button>
+                        <button onClick={fetchAcessUser}>승인하기</button>
                     )}
 
                 </div>

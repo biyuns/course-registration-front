@@ -3,36 +3,60 @@ import rsvInfo from "../css/RsvInfo.module.css"
 import ReservationInfo from "../components/ReservationInfo";
 import search from '../img/search.svg';
 import ManageReserveHeader from "../components/ManageReserveHeader";
+import { useState, useEffect } from "react";
+import { authAPI } from "../components/apiClient";
+import { resolvePath } from "react-router-dom";
 
-// ⭐️ 더미 예약 데이터 정의 (컴포넌트 외부에 위치)
-
-
+const dummyReservationData = [
+    {
+        "reservationId": 1,
+        "userId": 2,
+        "attendanceNumber": "1111",
+        "parentPhoneNumber": "010-2345-6789",
+        "nickname": "김학생",
+        "seatNumber": "601호-10",
+        "reservedAt": "2025-12-08T14:30:53.362935",
+        "message": "예약자 조회 성공"
+    },
+    {
+        "reservationId": 2,
+        "userId": 3,
+        "attendanceNumber": "9999",
+        "parentPhoneNumber": "010-9876-5432",
+        "nickname": "김아무개",
+        "seatNumber": "601호-11",
+        "reservedAt": "2025-12-08T14:33:35.179058",
+        "message": "예약자 조회 성공"
+    }
+]
 
 function ManagerRsvInfo() {
 
+    const [reservationUser, setReservationUser] = useState(dummyReservationData)
 
-    const dummyReservationData = [
-        {
-            "reservationId": 1,
-            "userId": 2,
-            "attendanceNumber": "1111",
-            "parentPhoneNumber": "010-2345-6789",
-            "nickname": "김학생",
-            "seatNumber": "601호-10",
-            "reservedAt": "2025-12-08T14:30:53.362935",
-            "message": "예약자 조회 성공"
-        },
-        {
-            "reservationId": 2,
-            "userId": 3,
-            "attendanceNumber": "9999",
-            "parentPhoneNumber": "010-9876-5432",
-            "nickname": "김아무개",
-            "seatNumber": "601호-11",
-            "reservedAt": "2025-12-08T14:33:35.179058",
-            "message": "예약자 조회 성공"
+
+
+    const [lectureData, setLectureData] = useState([])
+
+    useEffect(() => {
+        const lectureString = window.localStorage.getItem('lecture');
+        if (lectureString) {
+            setLectureData(JSON.parse(lectureString));
         }
-    ]
+
+        const fetchReservationUser = async () => {
+            try {
+                const id = lectureData.lectureId
+
+                const response = await authAPI.managerLectureRsvList(id);
+                setReservationUser(response.data);
+            } catch (err) {
+                console.error("강의 예약자 조회 실패: ", err)
+            }
+        }
+
+        fetchReservationUser();
+    })
 
 
 
@@ -57,7 +81,7 @@ function ManagerRsvInfo() {
                     </div>
 
 
-                    {dummyReservationData.map((data) => (
+                    {reservationUser.map((data) => (
                         <ReservationInfo
                             key={data.reservationId}
                             reservationData={data}

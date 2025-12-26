@@ -39,6 +39,20 @@ export const authAPI = {
   regiClassrooms: (data) => apiClient.post('/api/admin/classrooms', data),
   deleteMySeat: (reservationId) => apiClient.delete(`/api/reservations/myRV/${reservationId}`),
   secessionUser: (data) => apiClient.delete('/api/user/mypage', data),
+  instructorsAdd: () => apiClient.get('/api/admin/instructors'),
+  subjectsAdd: () => apiClient.get('/api/admin/subjects'),
+  classroomsAdd: () => apiClient.get('/api/admin/classrooms'),
+
+  //관리자pg
+  managerLectureList: (page) => apiClient.get(`/api/admin/lectures/all?page=${page}`),
+  managerLectureRsvList: (lectureId) => apiClient.get(`/api/admin/lectures/${lectureId}/reservations`),
+  managerLectureUserDelete: (reservationId) => apiClient.delete(`/api/admin/reservations/${reservationId}`),
+  managerDeleteLecture: (lecktureId) => apiClient.delete(`/api/admin/lectures/${lecktureId}`),
+  managerUserList: () => apiClient.get('/api/admin/users'),
+  managerAcessUserList: () => apiClient.get('/api/admin/users/pending'),
+  managerAcessUser: (userId) => apiClient.patch(`/api/admin/users/${userId}/approve`),
+  searchRsvUser: (lecktureId, nickname) => apiClient.get(`/api/admin/lectures/${lecktureId}/reservations?nickname=${nickname}`),
+  searchUser: (nickname) => apiClient.get(`/api/admin/users?nickname=${nickname}&page=0`)
 };
 
 export default apiClient;

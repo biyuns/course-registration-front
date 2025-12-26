@@ -1,5 +1,6 @@
 import Navigation from './Navigate';
 import classC from '../css/ClassCt.module.css';
+import { authAPI } from './apiClient';
 
 
 function ClassCtManage({ lectureData }) {
@@ -7,6 +8,7 @@ function ClassCtManage({ lectureData }) {
     const { movereservationInfo } = Navigation();
 
     const {
+        lectureId,
         subjectName,
         instructorName,
         classroomName,
@@ -25,6 +27,15 @@ function ClassCtManage({ lectureData }) {
     const reservationOpen = reservationOpenAt.replace('T', ' ')
     const reservationClose = reservationCloseAt.replace('T', ' ')
 
+    const sendData = () => {
+        const lectureData = {
+            lectureId: lectureId,
+        }
+
+        const lectureString = JSON.stringify(lectureData);
+
+        window.localStorage.setItem('lecture', lectureString);
+    }
 
 
 
@@ -40,11 +51,14 @@ function ClassCtManage({ lectureData }) {
                 <p className={classC.class_book_web}>예약 기간: {reservationOpen}~{reservationClose}</p>
             </div>
             <div className={classC.two_button_ct_manage}>
-                <button onClick={movereservationInfo}>예약자 조회</button>
-                <button>취소하기</button>
+                <button onClick={() => {
+                    sendData();
+                    movereservationInfo();
+                }}>예약자 조회</button>
+                <button>강의 조회</button>
             </div>
 
-        </div>
+        </div >
     );
 }
 

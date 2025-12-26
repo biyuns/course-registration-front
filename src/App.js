@@ -30,7 +30,9 @@ import IdFind from './pages/IdFind.jsx';
 import IdFind2 from './pages/IdFind2.jsx';
 import PswRessting from './pages/PswResetting.jsx';
 import PswChangeComplete from './pages/PswChangeComplete.jsx';
-
+import ClassInfoRegi from './pages/ClassInfoRegi.jsx';
+import ManageAcessUser from './pages/ManageAcessUser.jsx';
+import ManageUserInfo from './pages/ManageUserInfo.jsx';
 
 function App() {
   return (
@@ -64,6 +66,9 @@ function App() {
           <Route path="/password" element={<CheckPassword />} />
           <Route path="/parent-password" element={<ParentPassword />} />
           <Route path='/change-info' element={<ChangeInfo />} />
+          <Route path='/class-info-regi' element={<ClassInfoRegi />} />
+          <Route path='/manage-user-info' element={<ManageUserInfo />} />
+          <Route path='/manage-acess-info' element={<ManageAcessUser />} />
 
         </Route>
 
