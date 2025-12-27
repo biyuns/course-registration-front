@@ -42,7 +42,7 @@ function ClassCtWeb({ lectureData, btnText, click }) {
         <p className={classC.class_name_web}>{subjectName}</p>
         <p className={classC.class_book_web}>예약 기간: {reservationOpen}~{reservationClose}</p>
       </div>
-      <button onClick={click}>{btnText}</button>
+      <button onClick={reservationpg}>{btnText}</button>
     </div>
   );
 }

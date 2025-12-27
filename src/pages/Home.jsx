@@ -155,7 +155,6 @@ function Home() {
                   key={lecture.lectureId}
                   lectureData={lecture}
                   btnText="신청하기"
-                  onClick={reservationpg}
                 />
               ))}
             </div>
