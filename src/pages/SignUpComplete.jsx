@@ -15,19 +15,19 @@ export default function SignUpComplete() {
     const [name, setName] = useState('');
     const [attendanceNumber, setAttendanceNumber] = useState('');
 
-    useEffect(() => {
-        const fetchUserInfo = async () => {
-            try {
-                const res = await authAPI.signupcomplete();
-                // 백엔드 응답 예: { username, social, nickname, email, attendanceNumber } 등[image:1]
-                setName(res.data.nickname);          // 또는 res.data.username
-                setAttendanceNumber(res.data.attendanceNumber);
-            } catch (e) {
-                console.error(e);
-            }
-        };
-        fetchUserInfo();
-    }, []);
+    // useEffect(() => {
+    //     const fetchUserInfo = async () => {
+    //         try {
+    //             const res = await authAPI.signupcomplete();
+    //             // 백엔드 응답 예: { username, social, nickname, email, attendanceNumber } 등[image:1]
+    //             setName(res.data.nickname);          // 또는 res.data.username
+    //             setAttendanceNumber(res.data.attendanceNumber);
+    //         } catch (e) {
+    //             console.error(e);
+    //         }
+    //     };
+    //     fetchUserInfo();
+    // }, []);
     return (
         <div className="media-ct term-all-scroll-ct">
             <Header />

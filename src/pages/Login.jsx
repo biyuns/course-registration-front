@@ -9,7 +9,7 @@ import Logoimg from '../img/login-academy-logo.svg';
 import Header from '../components/Header.jsx';
 
 export default function Login() {
-  const { movesignup, idfind, pswfind } = Navigation();
+  const { movesignup, idfind, pswfind, movehome } = Navigation();
 
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState('');
@@ -37,8 +37,7 @@ export default function Login() {
       localStorage.setItem('refreshToken', refreshToken);
 
       setMessage('로그인에 성공했습니다.');
-      // 필요하면 여기서 페이지 이동 등 추가
-      // 예: window.location.href = '/';
+      movehome();
     } catch (error) {
       console.error(error);
       const msg =

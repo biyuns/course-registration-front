@@ -8,6 +8,11 @@ const apiClient = axios.create({
   },
 });
 
+const publicClient = axios.create({
+  baseURL: 'https://13.125.89.234.nip.io',
+  headers: { 'Content-Type': 'application/json' },
+});
+
 apiClient.interceptors.request.use((config) => {
   const token = localStorage.getItem('accessToken');
 
@@ -25,8 +30,8 @@ apiClient.interceptors.request.use((config) => {
 
 
 export const authAPI = {
-  login: (data) => apiClient.post('/login', data),   // 로그인
-  signup: (data) => apiClient.post('/api/user/signup', data), // 회원가입
+  login: (data) => publicClient.post('/login', data),   // 로그인
+  signup: (data) => publicClient.post('/api/user/signup', data), // 회원가입
   signupcomplete: (data) => apiClient.get('/api/user/mypage', data),
   getMyReservations: () => apiClient.get('/api/reservations/myRV'),
   getLectureList: () => apiClient.get('/api/lectures/list'),
@@ -42,6 +47,10 @@ export const authAPI = {
   instructorsAdd: () => apiClient.get('/api/admin/instructors'),
   subjectsAdd: () => apiClient.get('/api/admin/subjects'),
   classroomsAdd: () => apiClient.get('/api/admin/classrooms'),
+
+  // 좌석예약(reservation.jsx)
+  reserveSeat: (data) => apiClient.post('/api/reservations', data),
+  getLectureInfo: (lectureId) => apiClient.get(`/api/lectures/${lectureId}`),
 
   //관리자pg
   managerLectureList: (page) => apiClient.get(`/api/admin/lectures/all?page=${page}`),
