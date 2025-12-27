@@ -5,7 +5,7 @@ import { authAPI } from './apiClient';
 
 function ClassCtManage({ lectureData }) {
 
-    const { movereservationInfo } = Navigation();
+    const { movereservationInfo, moveclassinfo } = Navigation();
 
     const {
         lectureId,
@@ -28,6 +28,7 @@ function ClassCtManage({ lectureData }) {
     const reservationClose = reservationCloseAt.replace('T', ' ')
 
     const sendData = () => {
+        console.log(lectureId)
         const lectureData = {
             lectureId: lectureId,
         }
@@ -55,7 +56,10 @@ function ClassCtManage({ lectureData }) {
                     sendData();
                     movereservationInfo();
                 }}>예약자 조회</button>
-                <button>강의 조회</button>
+                <button onClick={() => {
+                    sendData();
+                    moveclassinfo();
+                }}>강의 조회</button>
             </div>
 
         </div >

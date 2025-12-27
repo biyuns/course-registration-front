@@ -78,17 +78,55 @@
     line-height: normal;
 }
 
-.form_ct>div>div {
+
+
+.select_input {
     display: flex;
+    flex-direction: column;
     width: 100%;
-    justify-content: space-between;
-    gap: 10px;
+    gap: 15px;
 }
 
-.ho_p {
+.select_input select,
+.select_input input {
+    width: 100%;
     display: flex;
-    padding-bottom: 20px;
-    align-items: end;
-    font-size: 20px;
-    margin-right: 20px;
+    height: 77px;
+    padding: 24px 14px;
+    align-items: center;
+
+    border: 1px solid #A2A2A2;
+    background: #FCFCFC;
+    color: #D8D8D8;
+    font-family: Pretendard;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
+
+
+.select_input>div {
+    display: flex;
+    align-items: center;
+}
+
+.select_input>div>button {
+    margin-left: 57px;
+    display: flex;
+    width: 164px;
+    height: 54px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    border-radius: 30px;
+    background: #757575;
+    color: #FFF;
+    text-align: center;
+    font-family: Pretendard;
+    font-size: 22px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
 }

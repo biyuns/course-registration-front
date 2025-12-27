@@ -14,7 +14,7 @@ const Sidebar = () => {
     location.pathname === '/' ||
     location.pathname === '/signup' ||
     location.pathname === '/signup-normal' ||
-    location.pathname === '/signupComplete'; 
+    location.pathname === '/signupComplete';
 
   // 필요 페이지에 맞게 위 조건만 바꾸면 됨
 
@@ -46,7 +46,7 @@ const Sidebar = () => {
           {/* ✅ 특정 페이지에서 관리자 숨기기 */}
           {!hideManager && (
             <NavLink
-              to="/ReservationInfo"
+              to="/ReservationRegiInfo"
               className={({ isActive }) =>
                 `side-manager ${isActive ? 'side-active' : ''}`
               }

@@ -3,21 +3,18 @@ import { useState, useEffect } from 'react';
 import { authAPI } from '../components/apiClient';
 import TimeForm from "./TimeForm";
 import DateForm from "./DateForm";
-import ManageHeaderSub from "./ManageHeaderSub";
+import HeadSub from '../css/HeaderSub.module.css';
 
-function ReservationForm() {
+
+function ReservationModi() {
 
     const now = new Date();
     const currentYear = now.getFullYear();
 
     //강사, 과목, 강의실 조회
-    const [instructorList, setInstructorList] = useState([]);
-    const [subjectList, setSubjectList] = useState([]);
-    const [classroomList, setClassroomList] = useState([]);
-
-    const [instructor, setInstructor] = useState("");
-    const [subject, setSubject] = useState("");
-    const [classroom, setClassroom] = useState("");
+    const [instructor, setInstructor] = useState([]);
+    const [subject, setSubject] = useState([]);
+    const [classroom, setClassroom] = useState([]);
 
 
     // 수업 날짜, 시작 날짜, 종료 날짜
@@ -44,9 +41,77 @@ function ReservationForm() {
     const [rsvEndHour, setRsvEndHour] = useState("00")
     const [rsvEndMin, setRsvEndMin] = useState("00")
 
+    //강의 조회용
+    const [classInfo, setClassInfo] = useState([]);
+    const [lectureData, setLectureData] = useState([])
+
+    //강의 밸류값 세팅
+    const valueSetting = () => {
+        const {
+            lectureId,
+            classroomId,
+            classroomName,
+            instructorId,
+            instructorName,
+            subjectId,
+            subjectName,
+            startTime,
+            endTime,
+            reservationOpenAt,
+            reservationCloseAt,
+            totalSeats
+        } = classInfo;
+
+        const dateChange = (date, setYear, setMonth, setDay) => {
+            setYear(date.slice(0, 4))
+            setMonth(date.slice(5, 7))
+            setDay(date.slice(8, 10))
+        }
+        dateChange(startTime, setClassYear, setClassMonth, setClassDay)
+        dateChange(reservationOpenAt, setStartYear, setStartMonth, setStartDay)
+        dateChange(reservationCloseAt, setEndYear, setEndMonth, setEndDay)
+
+        const timeChange = (time, setHour, setMin) => {
+            setHour(time.slice(11, 13))
+            setMin(time.slice(14, 16))
+        }
+        timeChange(startTime, setStartHour, setStartMin)
+        timeChange(endTime, setEndHour, setEndMin)
+        timeChange(reservationOpenAt, setRsvStartHour, setRsvStartMin)
+        timeChange(reservationCloseAt, setRsvEndHour, setRsvEndMin)
+
+        setInstructor(instructorId);
+        setSubject(subjectId);
+        setClassroom(classroomId);
+    }
+
 
     //강사, 과목, 강의실 조회 연동
     useEffect(() => {
+
+        //강의 조회 
+        const lectureString = window.localStorage.getItem('lecture');
+        if (lectureString) {
+            setLectureData(JSON.parse(lectureString));
+        }
+
+        const fetchClassInfo = async () => {
+            try {
+                const id = lectureData.lectureId
+                const response = await authAPI.checkLectureInfo(id);
+                setClassInfo(response.data);
+
+                valueSetting();
+
+
+            } catch (err) {
+                console.log('강의 세부 조회 실패: ', err)
+            }
+        }
+
+        fetchClassInfo();
+
+        //강사, 과목명, 강의실 조회
         const fetchData = async () => {
 
             try {
@@ -56,9 +121,9 @@ function ReservationForm() {
                     authAPI.classroomsAdd()
                 ]);
 
-                setInstructorList(resInstructors.data); // 강사 목록
-                setSubjectList(resSubjects.data);       // 과목 목록
-                setClassroomList(resClassrooms.data);   // 강의실 목록
+                setInstructor(resInstructors.data); // 강사 목록
+                setSubject(resSubjects.data);       // 과목 목록
+                setClassroom(resClassrooms.data);   // 강의실 목록
 
             } catch (err) {
                 console.error("데이터 로딩 실패:", err);
@@ -69,8 +134,7 @@ function ReservationForm() {
     }, []);
 
 
-
-    const fetchLectureRegi = async () => {
+    const nextLectureModi = () => {
 
         const startTime = `${classYear}-${classMonth}-${classDay}T${startHour}:${startMin}:00`;
         const endTime = `${classYear}-${classMonth}-${classDay}T${endHour}:${endMin}:00`;
@@ -88,28 +152,41 @@ function ReservationForm() {
 
         };
 
-        console.log(requestData)
-        try {
-            const response = await authAPI.lectureRegi(requestData);
-            console.log(response.data.message)
 
-        } catch (err) {
-            console.error(err)
-        }
+
+        const requestString = JSON.stringify(requestData);
+
+        window.localStorage.setItem('request', requestString);
+
+
     }
+
+
+
+
+
+
+
+
 
     return (
         <>
-            <ManageHeaderSub text="예약등록" button="다음" onButtonClick={fetchLectureRegi} />
+            <div className={HeadSub.sub_title}>
+                <p>강의 수정</p>
+                <div>
+                    <button >이전</button>
+                    <button onClick={nextLectureModi}>다음</button>
+                </div>
+            </div>
             <div className={rsvRegi.class_form}>
                 <form className={rsvRegi.reservation_form}>
                     {/* 기본 정보 입력 */}
                     <section className={rsvRegi.select_top}>
                         <div>
                             <label className={rsvRegi.labels} htmlFor="subject">과목명</label>
-                            <select id="subject" onChange={(e) => setSubject(e.target.value)}>
+                            <select id="subject" >
                                 <option value="">과목 선택</option>
-                                {subjectList.map((sub) => (
+                                {subject.map((sub) => (
                                     <option key={sub.id} value={sub.id}>{sub.name}</option>
                                 ))}
                             </select>
@@ -117,18 +194,18 @@ function ReservationForm() {
 
                         <div>
                             <label className={rsvRegi.labels} htmlFor="lecturer">강사</label>
-                            <select id="lecturer" onChange={(e) => setInstructor(e.target.value)}>
+                            <select id="lecturer">
                                 <option value="">강사 선택</option>
-                                {instructorList.map((inst) => (
+                                {instructor.map((inst) => (
                                     <option key={inst.id} value={inst.id}>{inst.name}</option>
                                 ))}
                             </select>
                         </div>
                         <div>
                             <label className={rsvRegi.labels} htmlFor="classroom">강의실</label>
-                            <select id="classroom" onChange={(e) => setClassroom(e.target.value)}>
+                            <select id="classroom">
                                 <option value="">강의실 선택</option>
-                                {classroomList.map((room) => (
+                                {classroom.map((room) => (
                                     <option key={room.id} value={room.id}>{room.classroomNum}호 {room.totalSeat}좌석</option>
                                 ))}
                             </select>
@@ -222,4 +299,4 @@ function ReservationForm() {
     );
 }
 
-export default ReservationForm;
+export default ReservationModi;

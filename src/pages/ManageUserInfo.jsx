@@ -30,7 +30,7 @@ function ManageUserInfo() {
         }
     ]
 
-    const [userInfoList, setUserInfo] = useState(userInfo)
+    const [userInfoList, setUserInfo] = useState([])
 
     useEffect(() => {
         const fetchUserInfo = async () => {

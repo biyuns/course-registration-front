@@ -88,7 +88,7 @@ p {
 
 .class_apply_btn {
     display: flex;
-    height: 75px;
+    height: 89px;
     padding: 16px;
     align-items: flex-start;
     gap: 10px;
@@ -101,7 +101,7 @@ p {
 
 .class_check_btn {
     display: flex;
-    height: 100px;
+    height: 89px;
     padding: 16px;
     align-items: flex-start;
     gap: 10px;

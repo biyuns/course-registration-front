@@ -129,7 +129,10 @@ function Home() {
 
           <div className={hom.class_button_ct}>
             <button className={hom.class_apply_btn} onClick={moveclassaply}>
-              <p>수업 신청</p>
+              <p>현강 신청</p>
+            </button>
+            <button className={hom.class_check_btn} onClick={moveclassaply}>
+              <p>인강 신청</p>
             </button>
 
           </div>

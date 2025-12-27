@@ -22,12 +22,10 @@ function ClassInfoRegi() {
         };
         try {
             const response = await authAPI.regiSubjects(requestData);
+            setOnModal(true);
 
-            if (response.status === 200) {
-                setOnModal(true);
-            }
         } catch (err) {
-            console.error("내 정보 수정 실패:", err);
+            console.error("강의명 등록 실패:", err);
         }
     };
 
@@ -37,12 +35,10 @@ function ClassInfoRegi() {
         };
         try {
             const response = await authAPI.regiInstructors(requestData);
+            setOnModal(true);
 
-            if (response.status === 200) {
-                setOnModal(true);
-            }
         } catch (err) {
-            console.error("내 정보 수정 실패:", err);
+            console.error("강사명 등록 실패:", err);
         }
     };
 
@@ -53,12 +49,10 @@ function ClassInfoRegi() {
         };
         try {
             const response = await authAPI.regiClassrooms(requestData);
+            setOnModal(true);
 
-            if (response.status === 200) {
-                setOnModal(true);
-            }
         } catch (err) {
-            console.error("내 정보 수정 실패:", err);
+            console.error("강의실 등록 실패:", err);
         }
     };
 
@@ -76,33 +70,41 @@ function ClassInfoRegi() {
                 <div>
                     <label>과목명</label>
                     <input
+                        required
                         placeholder="과목명 입력"
                         type="text"
                         value={subject}
                         onChange={(e) => setSubject(e.target.value)} />
-                    <button onClick={handlesubject}>등록하기</button>
+                    <button type="button" onClick={() => { handlesubject() }}>등록하기</button>
                 </div>
                 <div>
                     <label>강사</label>
-                    <input placeholder="이름 입력"
+                    <input
+                        required
+                        placeholder="이름 입력"
                         type="text"
                         value={instructor}
                         onChange={(e) => setInstructor(e.target.value)} />
-                    <button onClick={handleinstructor}>등록하기</button>
+                    <button type="button" onClick={() => { handleinstructor() }}>등록하기</button>
                 </div>
                 <div>
                     <label>강의실</label>
                     <div>
-                        <input placeholder="강의실 입력"
+                        <input
+                            required
+                            placeholder="강의실 입력"
                             type="text"
                             value={classroom}
                             onChange={(e) => setClassroom(e.target.value)} />
-                        <input placeholder="좌석 수"
+                        <p className={classRegi.ho_p}>호</p>
+                        <input
+                            required
+                            placeholder="좌석 수"
                             type="number"
                             value={seat}
                             onChange={(e) => setSeat(e.target.value)} />
                     </div>
-                    <button onClick={handleclassroom}>등록하기</button>
+                    <button type="button" onClick={() => { handleclassroom() }}>등록하기</button>
                 </div>
             </section>
             {
