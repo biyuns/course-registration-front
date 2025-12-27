@@ -84,7 +84,6 @@ const dummyLectureList = [
 
 
 function ManagerRsvRegiInfo() {
-
     const { movereservationRegi } = Navigation();
 
     const [lectureList, setLectureList] = useState(dummyLectureList);

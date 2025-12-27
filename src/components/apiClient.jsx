@@ -52,7 +52,11 @@ export const authAPI = {
   managerAcessUserList: () => apiClient.get('/api/admin/users/pending'),
   managerAcessUser: (userId) => apiClient.patch(`/api/admin/users/${userId}/approve`),
   searchRsvUser: (lecktureId, nickname) => apiClient.get(`/api/admin/lectures/${lecktureId}/reservations?nickname=${nickname}`),
-  searchUser: (nickname) => apiClient.get(`/api/admin/users?nickname=${nickname}&page=0`)
+  searchUser: (nickname) => apiClient.get(`/api/admin/users?nickname=${nickname}&page=0`),
+  lectureRegi: (data) => apiClient.post('/api/admin/lectures', data),
+  checkLectureInfo: (lectureId) => apiClient.get(`/api/admin/lectures/${lectureId} `),
+  modiLectureInfo: (lectureId, data) => apiClient.get(`/api/admin/lectures/${lectureId} `, data),
+
 };
 
 export default apiClient;

@@ -33,6 +33,9 @@ import PswChangeComplete from './pages/PswChangeComplete.jsx';
 import ClassInfoRegi from './pages/ClassInfoRegi.jsx';
 import ManageAcessUser from './pages/ManageAcessUser.jsx';
 import ManageUserInfo from './pages/ManageUserInfo.jsx';
+import ManageClassInfo from './pages/ManageClassInfo.jsx';
+import ManagerRsvModi from './pages/ManagerRsvModi.jsx';
+import ClassInfoModi from './pages/ClassInfoModi.jsx';
 
 function App() {
   return (
@@ -69,7 +72,9 @@ function App() {
           <Route path='/class-info-regi' element={<ClassInfoRegi />} />
           <Route path='/manage-user-info' element={<ManageUserInfo />} />
           <Route path='/manage-acess-info' element={<ManageAcessUser />} />
-
+          <Route path='/manage-check-class' element={<ManageClassInfo />} />
+          <Route path='/manage-modi-class' element={<ManagerRsvModi />} />
+          <Route path='/manage-modi-class-info' element={<ClassInfoModi />} />
         </Route>
 
       </Routes>

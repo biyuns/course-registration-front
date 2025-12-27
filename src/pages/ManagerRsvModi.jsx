@@ -1,22 +1,18 @@
 import Header from "../components/Header";
-import ReservationForm from "../components/ReservationForm";
 import ManageReserveHeader from "../components/ManageReserveHeader";
+import ReservationModi from "../components/ReservationModi";
 
-function ManagerRsvRegi() {
-
-
+function ManagerRsvModi() {
     return (
         <>
             <Header />
             <ManageReserveHeader />
 
             <section>
-                <ReservationForm />
+                <ReservationModi />
             </section>
-
-
         </>
     )
 }
 
-export default ManagerRsvRegi;
+export default ManagerRsvModi;

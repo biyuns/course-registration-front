@@ -21,14 +21,15 @@ function ManageAcessUser() {
         }
     ]
 
-    const [userAcessInfoList, setUserInfo] = useState(userAcessInfo)
+    const [userAcessInfoList, setUserInfo] = useState([])
     const btn = true;
 
     useEffect(() => {
         const fetchAcessUserInfo = async () => {
             try {
                 const response = await authAPI.managerAcessUserList();
-                setUserInfo(response.data.content)
+                setUserInfo(response.data)
+                console.log(UserInfo)
             } catch (err) {
                 console.error("유저 조회 실패:", err)
             }
@@ -58,8 +59,6 @@ function ManageAcessUser() {
                     <div className={rsvInfo.top}>
                         <p className={rsvInfo.info_1_5}>출결번호</p><p className={rsvInfo.info_1_5}>회원이름</p><p className={rsvInfo.info_2}>학부모 전화번호</p><p className={rsvInfo.info_2}>가입일시</p><p className={rsvInfo.info_2}>이메일</p><p className={rsvInfo.info_1}></p>
                     </div>
-
-
                     {userAcessInfoList.map((data) => (
                         <UserInfo
                             key={data.userId}
@@ -67,6 +66,8 @@ function ManageAcessUser() {
                             btn={btn}
                         />
                     ))}
+
+
 
                 </div>
             </section>

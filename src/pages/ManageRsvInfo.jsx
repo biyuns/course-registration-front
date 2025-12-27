@@ -32,32 +32,32 @@ const dummyReservationData = [
 
 function ManagerRsvInfo() {
 
-    const [reservationUser, setReservationUser] = useState(dummyReservationData)
+    const [reservationUser, setReservationUser] = useState([])
 
 
 
-    const [lectureData, setLectureData] = useState([])
+    const [lectureData, setLectureData] = useState(null)
 
     useEffect(() => {
         const lectureString = window.localStorage.getItem('lecture');
+
         if (lectureString) {
-            setLectureData(JSON.parse(lectureString));
+            const parsed = JSON.parse(lectureString);
+            setLectureData(parsed);
+
+            const fetchReservationUser = async (id) => {
+                if (!id) return;
+                try {
+                    const response = await authAPI.managerLectureRsvList(id);
+                    setReservationUser(response.data);
+                } catch (err) {
+                    console.error("강의 예약자 조회 실패: ", err);
+                }
+            };
+
+            fetchReservationUser(parsed.lectureId);
         }
-
-        const fetchReservationUser = async () => {
-            try {
-                const id = lectureData.lectureId
-
-                const response = await authAPI.managerLectureRsvList(id);
-                setReservationUser(response.data);
-            } catch (err) {
-                console.error("강의 예약자 조회 실패: ", err)
-            }
-        }
-
-        fetchReservationUser();
-    })
-
+    }, []);
 
 
     return (

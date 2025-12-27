@@ -25,11 +25,30 @@ export default function Navigation() {
 
     const movereservationInfo = () => navigate('/ReservationInfo')
     const movereservationRegi = () => navigate('/ReservationRegi')
+
+    //강의 예약 등록 정보
     const movereservationRegiInfo = () => navigate('/ReservationRegiInfo')
 
     const movemyclassinfo = () => navigate('/myClassInfo')
     const movechangeparentphone = () => navigate('/parent-password')
     const movechangepassword = () => navigate('/password')
+
+    //강의 조회
+    const moveclassinfo = () => navigate('/manage-check-class')
+
+    //회원 조회(가입자, 승인)
+    const movemanageuserinfo = () => navigate('/manage-user-info')
+    const movemanageacessinfo = () => navigate('/manage-acess-info')
+
+    //강의 세부 정보 등록(강의실, 과목명..)
+    const movemanageclassdetailregi = () => navigate('/class-info-regi')
+
+    //강의세부 정보 수정
+    const movemanageclassdetailmodi = () => navigate('/manage-modi-class-info')
+
+
+    //예약 강의 정보 수정
+    const movemanageclassmodi = () => navigate('/manage-modi-class')
 
     return {
         movesignup, signup_normal, signupcomplete, loginpg, movehome,
@@ -37,6 +56,8 @@ export default function Navigation() {
         movereservationRegi, movereservationRegiInfo, termcondition,
         movemyclassinfo, movechangeparentphone, movechangepassword,
         termallagree, termpersoninf, termmarketing, idfind, pswfind
-        , idfind2, pswreseting, pswchangecomplete
+        , idfind2, pswreseting, pswchangecomplete, moveclassinfo,
+        movemanageuserinfo, movemanageacessinfo, movemanageclassdetailregi,
+        movemanageclassdetailmodi, movemanageclassmodi
     };
 };
