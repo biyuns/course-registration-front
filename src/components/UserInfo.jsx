@@ -37,7 +37,7 @@ function UserInfo({ userInfo, btn }) {
                 <p className={rsvInfo.info_2}>{email}</p>
                 <div className={rsvInfo.info_1_btn}>
                     {btn === true && (
-                        <button onClick={fetchAcessUser}>승인하기</button>
+                        <button onClick={() => (fetchAcessUser())}>승인하기</button>
                     )}
 
                 </div>
