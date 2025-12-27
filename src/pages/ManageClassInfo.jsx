@@ -45,7 +45,7 @@ function ManageClassInfo() {
     }
 
     return (
-        <>
+        <div className='term-all-scroll-ct' >
             <Header />
             <ManageReserveHeader />
 
@@ -104,7 +104,7 @@ function ManageClassInfo() {
                     </section>
                 </div>
             </div>
-        </>
+        </div>
     );
 }
 

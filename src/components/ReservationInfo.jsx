@@ -45,7 +45,7 @@ function ReservationInfo({ reservationData }) {
     }
 
     return (
-        <div className={rsvInfo.infos}>
+        <div className={`${rsvInfo.infos}`}>
             <div>
                 <p className={rsvInfo.info_0_9}>{reservationId}</p>
                 <p className={rsvInfo.info_1}>{seat}</p>

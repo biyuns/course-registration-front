@@ -132,7 +132,7 @@ function ManagerRsvRegiInfo() {
 
 
     return (
-        <>
+        <div className="term-all-scroll-ct">
             <Header />
             <ManageReserveHeader />
             <section>
@@ -184,7 +184,7 @@ function ManagerRsvRegiInfo() {
                 </div>
             </section>
 
-        </>
+        </div>
     )
 }
 
