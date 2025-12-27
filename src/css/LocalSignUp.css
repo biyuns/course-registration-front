@@ -208,12 +208,6 @@
 .ls-sign-btn {
   background: #d9d9d9;
 }
-
-/* 활성(청록색) */
-.ls-sign-btn {
-  background: #d9d9d9;
-}
-
 /* 모든 조건 만족 시 적용될 클래스 */
 .ls-sign-btn-active {
   background: #01aeb0;

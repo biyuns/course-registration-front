@@ -13,6 +13,7 @@ export default function SignUpNormal() {
     const [step, setStep] = useState(1);
     const [loading, setLoading] = useState(false);
     const [message, setMessage] = useState('');
+
     const [formData, setFormData] = useState({
         username: "",
         password: "",
@@ -31,6 +32,8 @@ export default function SignUpNormal() {
         passwordConfirm: ""
     });
 
+    const [isCustomDomain, setIsCustomDomain] = useState(false);
+
     // 모든 필드 채워졌는지
     const isAllFilled =
         formData.username.trim() !== "" &&
@@ -42,39 +45,75 @@ export default function SignUpNormal() {
         formData.parentPhoneNumber.trim() !== "";
 
     // 규칙 검사
-    const isUsernameValid = formData.username.length >= 6 && formData.username.length <= 12;
-    const isPasswordValid = formData.password.length >= 8;
+    const isUsernameValid = formData.username.length >= 2 && formData.username.length <= 12;
+    const isPasswordValid = formData.password.length >= 4;
     const isPasswordMatch = formData.password === formData.passwordConfirm;
+    const isAttendanceValid = formData.attendanceNumber.length === 4;
 
-    // 최종 유효 여부 (버튼 활성화 + 청록색 기준)
-    const isFormValid = isAllFilled && isUsernameValid && isPasswordValid && isPasswordMatch;
+    // 최종 유효 여부
+    const isFormValid =
+        isAllFilled &&
+        isUsernameValid &&
+        isPasswordValid &&
+        isPasswordMatch &&
+        isAttendanceValid;
 
     const handleChange = (e) => {
         const { name, value } = e.target;
 
-        if (name === "emailLocal") {
-            setFormData((prev) => ({
+        // 아이디: 숫자만, 최대 12자
+        if (name === "username") {
+            const trimmed = value.slice(0, 12); // 최대 12자
+            setFormData(prev => ({ ...prev, username: trimmed }));
+        }
+        // 출결번호: 숫자만, 최대 4자리
+        else if (name === "attendanceNumber") {
+            const onlyNumber = value.replace(/[^0-9]/g, "");
+            const trimmed = onlyNumber.slice(0, 4);
+            setFormData(prev => ({ ...prev, attendanceNumber: trimmed }));
+        }
+        // 학부모 전화번호: 숫자만
+        else if (name === "parentPhoneNumber") {
+            const onlyNumber = value.replace(/[^0-9]/g, "");
+            setFormData(prev => ({ ...prev, parentPhoneNumber: onlyNumber }));
+        }
+        // 이메일 로컬 부분
+        else if (name === "emailLocal") {
+            setFormData(prev => ({
                 ...prev,
                 emailLocal: value,
                 email: value && prev.emailDomain ? `${value}@${prev.emailDomain}` : ""
             }));
-        } else {
-            setFormData((prev) => ({
+        }
+        // 나머지 일반 필드
+        else {
+            setFormData(prev => ({
                 ...prev,
                 [name]: value
             }));
         }
 
-        // ✅ 추가: 입력 변경 시 비밀번호 관련 에러 즉시 재검사
+        // 비밀번호 관련 에러 즉시 재검사
         setErrors((prev) => {
             const updated = { ...prev };
 
-            const nextData = name === "emailLocal"
-                ? { ...formData, emailLocal: value, email: value && formData.emailDomain ? `${value}@${formData.emailDomain}` : "" }
-                : { ...formData, [name]: value };
+            const nextData =
+                name === "username"
+                    ? { ...formData, username: value.replace(/[^0-9]/g, "").slice(0, 12) }
+                    : name === "attendanceNumber"
+                        ? { ...formData, attendanceNumber: value.replace(/[^0-9]/g, "").slice(0, 4) }
+                        : name === "parentPhoneNumber"
+                            ? { ...formData, parentPhoneNumber: value.replace(/[^0-9]/g, "") }
+                            : name === "emailLocal"
+                                ? {
+                                    ...formData,
+                                    emailLocal: value,
+                                    email: value && formData.emailDomain ? `${value}@${formData.emailDomain}` : ""
+                                }
+                                : { ...formData, [name]: value };
 
-            const usernameValid = nextData.username.length >= 6 && nextData.username.length <= 12;
-            const passwordValid = nextData.password.length >= 8;
+            const usernameValid = nextData.username.length >= 2 && nextData.username.length <= 12;
+            const passwordValid = nextData.password.length >= 4;
             const passwordMatch = nextData.password === nextData.passwordConfirm;
 
             updated.username = usernameValid ? "" : prev.username;
@@ -84,8 +123,6 @@ export default function SignUpNormal() {
             return updated;
         });
     };
-
-    const [isCustomDomain, setIsCustomDomain] = useState(false);
 
     const handleEmailDomainChange = (e) => {
         const domain = e.target.value;
@@ -126,16 +163,19 @@ export default function SignUpNormal() {
         };
 
         if (!isUsernameValid) {
-            newErrors.username = "아이디는 6~12자 사이여야 합니다.";
+            newErrors.username = "아이디는 2~12자 숫자여야 합니다.";
         }
         if (!isPasswordValid) {
-            newErrors.password = "비밀번호는 영문, 숫자를 포함해 8자 이상이어야 합니다.";
+            newErrors.password = "비밀번호는 4자 이상이어야 합니다.";
         }
         if (!isPasswordMatch) {
             newErrors.passwordConfirm = "비밀번호가 일치하지 않습니다.";
         }
+        if (!isAttendanceValid) {
+            alert("출결번호는 정확히 4자리여야 합니다.");
+        }
 
-        if (newErrors.username || newErrors.password || newErrors.passwordConfirm) {
+        if (newErrors.username || newErrors.password || newErrors.passwordConfirm || !isAttendanceValid) {
             setErrors(newErrors);
             alert("입력하신 정보를 다시 한번 확인해주세요.");
             return;
@@ -197,7 +237,7 @@ export default function SignUpNormal() {
             <SignupTermDesktop step={2} />
             <div className="ls-ct ">
 
-                {/* 👇 데스크톱 버전 (전체 필드 한 번에) */}
+                {/* 데스크톱 */}
                 {!isMobile && (
                     <form onSubmit={handleSignup} className="ls-info-ct">
                         <article className="ls-id-ct">
@@ -211,10 +251,12 @@ export default function SignUpNormal() {
                                 placeholder="아이디를 입력"
                                 maxLength={12}
                             />
-                            <p className={`ls-id-sub ${errors.username ? "ls-error-text" : ""}`}> 6~12자 영문, 숫자를 입력해주세요. </p>
+                            <p className={`ls-id-sub ${errors.username ? "ls-error-text" : ""}`}>
+                                2~12자 사이의 숫자를 입력해주세요.
+                            </p>
                             {errors.username && (
                                 <p className="ls-id-error ls-error-text">
-                                    사용할 수 없는 아이디입니다. 6~12자 사이로 입력해주세요.
+                                    사용할 수 없는 아이디입니다. 2~12자 사이 숫자로 입력해주세요.
                                 </p>
                             )}
                         </article>
@@ -229,15 +271,15 @@ export default function SignUpNormal() {
                                 onChange={handleChange}
                                 placeholder="비밀번호를 입력"
                             />
-                            <p className="ls-psw-sub"> 영문, 숫자를 포함해 8자 이상 입력해 주세요.</p>
+                            <p className="ls-psw-sub"> 영문, 숫자를 포함해 4자 이상 입력해 주세요.</p>
                         </article>
 
                         <article className="ls-psw-check-ct">
-                            <label className="ls-psw-check"> 비밀번호 확인</label>
+                            <label className="ls-psw-check"> 비밀번호 재확인</label>
                             <input
                                 type="password"
                                 name="passwordConfirm"
-                                className={`ls-input ${errors.passwordConfirm ? "ls-input-error" : ""}`} // 🔧 수정
+                                className={`ls-input ${errors.passwordConfirm ? "ls-input-error" : ""}`}
                                 value={formData.passwordConfirm}
                                 onChange={handleChange}
                                 placeholder="비밀번호를 재입력."
@@ -273,18 +315,28 @@ export default function SignUpNormal() {
                                     placeholder="이메일 아이디 입력."
                                 />
                                 <p> @ </p>
-                                <select
-                                    className="ls-input-email"
-                                    value={formData.emailDomain}
-                                    onChange={handleEmailDomainChange}
-                                >
-                                    <option value="naver.com">naver.com</option>
-                                    <option value="daum.net">daum.net</option>
-                                    <option value="gmail.com">gmail.com</option>
-                                    <option value="hanmail.com">hanmail.com</option>
-                                    <option value="nate.com">nate.com</option>
-                                    <option value="direct">직접입력</option>
-                                </select>
+                                {isCustomDomain ? (
+                                    <input
+                                        type="text"
+                                        className="ls-input-email"
+                                        value={formData.emailDomain}
+                                        onChange={handleCustomDomainChange}
+                                        placeholder="직접 도메인 입력 (예: example.com)"
+                                    />
+                                ) : (
+                                    <select
+                                        className="ls-input-email"
+                                        value={formData.emailDomain}
+                                        onChange={handleEmailDomainChange}
+                                    >
+                                        <option value="naver.com">naver.com</option>
+                                        <option value="daum.net">daum.net</option>
+                                        <option value="gmail.com">gmail.com</option>
+                                        <option value="hanmail.com">hanmail.com</option>
+                                        <option value="nate.com">nate.com</option>
+                                        <option value="direct">직접입력</option>
+                                    </select>
+                                )}
                             </div>
                         </article>
 
@@ -311,6 +363,7 @@ export default function SignUpNormal() {
                                 className="ls-input"
                                 placeholder="출결번호 입력"
                             />
+                            <p className="ls-attendance-sub"> 정확히 4자리 숫자를 입력해 주세요.</p>
                         </article>
 
                         <button
@@ -323,7 +376,7 @@ export default function SignUpNormal() {
                     </form>
                 )}
 
-                {/* 👇 모바일 Step 1 (이름, 이메일, 전화번호, 출결번호) */}
+                {/* 모바일 Step 1 */}
                 {isMobile && step === 1 && (
                     <form onSubmit={nextStep} className="ls-info-ct">
                         <SignupTop2 step={1} />
@@ -351,18 +404,28 @@ export default function SignUpNormal() {
                                     placeholder="이메일 아이디 입력"
                                 />
                                 <p> @ </p>
-                                <select
-                                    className="ls-input-email"
-                                    value={formData.emailDomain}
-                                    onChange={handleEmailDomainChange}
-                                >
-                                    <option value="naver.com">naver.com</option>
-                                    <option value="daum.net">daum.net</option>
-                                    <option value="gmail.com">gmail.com</option>
-                                    <option value="hanmail.com">hanmail.com</option>
-                                    <option value="nate.com">nate.com</option>
-                                    <option value="direct">직접입력</option>
-                                </select>
+                                {isCustomDomain ? (
+                                    <input
+                                        type="text"
+                                        className="ls-input-email"
+                                        value={formData.emailDomain}
+                                        onChange={handleCustomDomainChange}
+                                        placeholder="직접 도메인 입력 (예: example.com)"
+                                    />
+                                ) : (
+                                    <select
+                                        className="ls-input-email"
+                                        value={formData.emailDomain}
+                                        onChange={handleEmailDomainChange}
+                                    >
+                                        <option value="naver.com">naver.com</option>
+                                        <option value="daum.net">daum.net</option>
+                                        <option value="gmail.com">gmail.com</option>
+                                        <option value="hanmail.com">hanmail.com</option>
+                                        <option value="nate.com">nate.com</option>
+                                        <option value="direct">직접입력</option>
+                                    </select>
+                                )}
                             </div>
                         </article>
 
@@ -389,14 +452,14 @@ export default function SignUpNormal() {
                                 className="ls-input"
                                 placeholder="출결번호 입력."
                             />
-                            <p className="ls-attendance-sub"> 4자리 숫자를 입력해 주세요.</p>
+                            <p className="ls-attendance-sub"> 정확히 4자리 숫자를 입력해 주세요.</p>
                         </article>
 
                         <button className="ls-sign-btn" type="submit">다음</button>
                     </form>
                 )}
 
-                {/* 👇 모바일 Step 2 (아이디, 비밀번호, 비밀번호 확인) */}
+                {/* 모바일 Step 2 */}
                 {isMobile && step === 2 && (
                     <form onSubmit={handleSignup} className="ls-info-ct">
                         <SignupTop2 step={2} />
@@ -407,10 +470,11 @@ export default function SignUpNormal() {
                                 name="username"
                                 value={formData.username}
                                 onChange={handleChange}
-                                className="ls-input"
+                                className={`ls-input ${errors.username ? "ls-input-error" : ""}`}
                                 placeholder="아이디를 입력"
+                                maxLength={12}
                             />
-                            <p className="ls-id-sub"> 6~12자 영문, 숫자를 입력해주세요. </p>
+                            <p className="ls-id-sub"> 2~12자 숫자를 입력해주세요. </p>
                         </article>
 
                         <article className="ls-psw-ct">
@@ -423,11 +487,11 @@ export default function SignUpNormal() {
                                 onChange={handleChange}
                                 placeholder="비밀번호를 입력"
                             />
-                            <p className="ls-psw-sub"> 영문, 숫자를 포함해 8자 이상 입력해 주세요.</p>
+                            <p className="ls-psw-sub"> 영문, 숫자를 포함해 4자 이상 입력해 주세요.</p>
                         </article>
 
                         <article className="ls-psw-check-ct">
-                            <label className="ls-psw-check"> 비밀번호 확인</label>
+                            <label className="ls-psw-check"> 비밀번호 재확인</label>
                             <input
                                 type="password"
                                 name="passwordConfirm"
