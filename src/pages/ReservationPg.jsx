@@ -140,7 +140,7 @@ const ReservationPg = () => {
   }
 
   return (
-    <div className="media-ct">
+    <div className="media-c term-all-scroll-ct">
       <Header />
       <nav className="reservation-top-ct">
         <img src={MobileBackbtn} alt="모바일 뒤로가기 이미지" />
@@ -213,7 +213,7 @@ const ReservationPg = () => {
             </div>
 
             <button
-              className={`rsr-reservation-btn ${selectedSeat && !loading ? "rsr-reservation-btn-active" : ""}`}
+              className={`rsr-reservation-btn2 ${selectedSeat && !loading ? "rsr-reservation-btn-active" : ""}`}
               type="button"
               disabled={!selectedSeat || loading || initialLoading}
               onClick={handleReserve}

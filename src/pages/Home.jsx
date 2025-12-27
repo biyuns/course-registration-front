@@ -11,7 +11,7 @@ import ClassCt from '../components/ClassCt';
 
 
 function Home() {
-  const { moveclassaply, movetime } = Navigation();
+  const { moveclassaply, movetime, reservationpg } = Navigation();
   const location = useLocation();
 
   const [myClassData, setMyClassData] = useState([]);
